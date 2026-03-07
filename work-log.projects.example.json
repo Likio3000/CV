@@ -1,0 +1,25 @@
+{
+  "projects": [
+    {
+      "name": "Alpha Evolve",
+      "path": "/absolute/path/to/Alpha_Evolve"
+    },
+    {
+      "name": "ArcadiaFlow",
+      "path": "/absolute/path/to/ArcadiaFlow"
+    },
+    {
+      "name": "Data Analyst",
+      "path": "/absolute/path/to/Data_analyst"
+    }
+  ],
+  "options": {
+    "max_entries": 30,
+    "git_max_commits_per_project": 24,
+    "git_since_days": 180,
+    "structured_log_paths": [
+      ".codex/work-log.jsonl",
+      "work-log.jsonl"
+    ]
+  }
+}

@@ -288,6 +288,122 @@ main {
   display: block;
 }
 
+.log-summary,
+.log-feed {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.log-summary {
+  margin-top: 16px;
+}
+
+.log-summary p {
+  margin: 0;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255, 250, 242, 0.88);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 28px rgba(28, 26, 22, 0.08);
+  color: var(--muted);
+}
+
+.log-feed {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.log-entry {
+  background: rgba(255, 250, 242, 0.92);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: 0 16px 36px rgba(28, 26, 22, 0.1);
+  padding: 22px 24px;
+}
+
+.log-entry-empty {
+  text-align: center;
+}
+
+.log-entry-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.log-entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.log-entry-meta span {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(28, 26, 22, 0.06);
+  color: var(--muted);
+}
+
+.log-entry-title {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.log-entry-summary {
+  margin: 12px 0 0;
+  color: var(--muted);
+  max-width: 72ch;
+}
+
+.log-entry-link {
+  color: var(--accent-cool);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.log-entry-section {
+  margin-top: 18px;
+}
+
+.log-entry-section h3 {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+.log-entry-section ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  display: grid;
+  gap: 8px;
+}
+
+.log-issue-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.log-issue-list li {
+  display: grid;
+  gap: 6px;
+}
+
+.log-issue-list strong {
+  color: var(--ink);
+}
+
 .projects {
   margin-top: 20px;
 }
@@ -402,6 +518,14 @@ main {
   .site-footer {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .log-entry {
+    padding: 20px 18px;
+  }
+
+  .log-entry-header {
+    flex-direction: column;
   }
 }
 
