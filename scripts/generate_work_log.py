@@ -4,7 +4,6 @@ from __future__ import annotations
 import json
 import subprocess
 import sys
-from collections import defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -18,8 +17,10 @@ OUTPUT_PATH = ROOT / "work-log-data.js"
 def main() -> int:
   config = load_config()
   options = config.get("options", {})
-  max_entries = int(options.get("max_entries", 30))
   git_max_commits = int(options.get("git_max_commits_per_project", 24))
+  max_entries = int(
+    options.get("max_entries", max(60, len(config.get("projects", [])) * git_max_commits))
+  )
   git_since_days = int(options.get("git_since_days", 180))
   structured_log_paths = options.get(
     "structured_log_paths",
@@ -175,35 +176,26 @@ def read_git_entries(
   if result.returncode != 0:
     return []
 
-  daily_groups: Dict[str, Dict[str, Any]] = defaultdict(
-    lambda: {"timestamp": "", "items": []}
-  )
-
+  entries: List[Dict[str, Any]] = []
   for line in result.stdout.splitlines():
     timestamp_text, date_text, short_hash, subject = line.split("\x1f", 3)
     if date_text in skip_dates:
       continue
 
     timestamp = parse_timestamp(timestamp_text)
-    group = daily_groups[date_text]
-    group["timestamp"] = max(group["timestamp"], timestamp.isoformat(timespec="seconds"))
-    group["items"].append(f"{subject} ({short_hash})")
-
-  entries: List[Dict[str, Any]] = []
-  for date_text, group in daily_groups.items():
-    commit_count = len(group["items"])
     entries.append(
       {
         "date": date_text,
-        "timestamp": group["timestamp"] or f"{date_text}T12:00:00",
+        "timestamp": timestamp.isoformat(timespec="seconds"),
         "project": project_name,
-        "title": f"{project_name} activity",
-        "summary": f"{commit_count} commit{'s' if commit_count != 1 else ''} grouped from recent git history.",
-        "workedOn": group["items"],
+        "title": subject,
+        "summary": f"Git commit {short_hash} captured from recent git history.",
+        "workedOn": [],
         "issues": [],
         "goals": [],
         "repoUrl": repo_url,
         "sourceLabel": "Git history",
+        "commitHash": short_hash,
       }
     )
 

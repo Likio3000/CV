@@ -14,7 +14,7 @@
     }
   ],
   "options": {
-    "max_entries": 30,
+    "max_entries": 120,
     "git_max_commits_per_project": 24,
     "git_since_days": 180,
     "structured_log_paths": [

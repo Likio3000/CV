@@ -231,8 +231,14 @@ def git_command(project_path: Path, args: List[str]) -> Optional[str]:
 
 
 def commit_is_logged(entries: List[Dict[str, Any]], short_hash: str) -> bool:
-  needle = f"({short_hash})"
   for entry in entries:
+    if str(entry.get("commitHash", "")) == short_hash:
+      return True
+
+    needle = short_hash
+    if needle in str(entry.get("summary", "")):
+      return True
+
     for item in entry.get("workedOn", []):
       if needle in str(item):
         return True

@@ -6,8 +6,9 @@ The `Work Logs` page is generated from project activity rather than being edited
 
 1. `scripts/generate_work_log.py` scans the projects listed in the local-only `work-log.projects.json`.
 2. If a project contains `.codex/work-log.jsonl`, those structured Codex notes are used for that project's matching days.
-3. If a project has no structured note for a day, the generator falls back to grouping recent git commits by project and date.
+3. If a project has no structured note for a day, the generator falls back to publishing one log entry per recent git commit.
 4. The script writes the public page data to `work-log-data.js`, which is what `work-logs.html` renders.
+5. The `max_entries` option controls how many of those generated commit entries stay published on the page.
 
 ## Low-level rebuild
 
