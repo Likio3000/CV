@@ -1,9 +1,25 @@
 window.WORK_LOG_DATA = {
-  "generatedAt": "2026-03-08T01:44:56+11:00",
+  "generatedAt": "2026-03-08T01:54:29+11:00",
   "projectCount": 6,
   "structuredProjectCount": 0,
-  "gitFallbackProjectCount": 5,
+  "gitFallbackProjectCount": 6,
   "entries": [
+    {
+      "date": "2026-03-08",
+      "timestamp": "2026-03-08T01:44:57+11:00",
+      "project": "Data Analyst",
+      "title": "Data Analyst activity",
+      "summary": "3 commits grouped from recent git history.",
+      "workedOn": [
+        "Standardize project naming (2bc92e4)",
+        "Add public README and tighten ignore rules (3de5339)",
+        "Fix forecasting labels and publish-ready repo layout (0844044)"
+      ],
+      "issues": [],
+      "goals": [],
+      "repoUrl": "https://github.com/Likio3000/vic-energy-demand-case-study",
+      "sourceLabel": "Git history"
+    },
     {
       "date": "2026-03-08",
       "timestamp": "2026-03-08T01:25:03+11:00",
@@ -16,6 +32,20 @@ window.WORK_LOG_DATA = {
       "issues": [],
       "goals": [],
       "repoUrl": "https://github.com/Likio3000/Alpha_Evolve",
+      "sourceLabel": "Git history"
+    },
+    {
+      "date": "2026-02-28",
+      "timestamp": "2026-02-28T02:38:08+11:00",
+      "project": "Data Analyst",
+      "title": "Data Analyst activity",
+      "summary": "1 commit grouped from recent git history.",
+      "workedOn": [
+        "Initial energy-demand case study pipeline and Streamlit app (ad26177)"
+      ],
+      "issues": [],
+      "goals": [],
+      "repoUrl": "https://github.com/Likio3000/vic-energy-demand-case-study",
       "sourceLabel": "Git history"
     },
     {
@@ -417,37 +447,6 @@ window.WORK_LOG_DATA = {
       "issues": [],
       "goals": [],
       "repoUrl": "https://github.com/Likio3000/Alpha_Evolve",
-      "sourceLabel": "Git history"
-    },
-    {
-      "date": "2025-12-18",
-      "timestamp": "2025-12-18T23:53:30+11:00",
-      "project": "Alpha Evolve",
-      "title": "Alpha Evolve activity",
-      "summary": "4 commits grouped from recent git history.",
-      "workedOn": [
-        "Eliminate Experiments section (933e2be)",
-        "new dropdown (f019b88)",
-        "Quaterly update, new UI 2/2 (e8239be)",
-        "quaterly update Part1/2 (7e445f5)"
-      ],
-      "issues": [],
-      "goals": [],
-      "repoUrl": "https://github.com/Likio3000/Alpha_Evolve",
-      "sourceLabel": "Git history"
-    },
-    {
-      "date": "2025-12-18",
-      "timestamp": "2025-12-18T00:51:03+11:00",
-      "project": "ArcadiaFlow",
-      "title": "ArcadiaFlow activity",
-      "summary": "1 commit grouped from recent git history.",
-      "workedOn": [
-        "debugg docker (3a98d2a)"
-      ],
-      "issues": [],
-      "goals": [],
-      "repoUrl": "https://github.com/Likio3000/ArcadiaFlow",
       "sourceLabel": "Git history"
     }
   ]

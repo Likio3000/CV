@@ -36,6 +36,27 @@ That command:
 
 This keeps the final decision in your hands instead of publishing activity on a timer.
 
+## Terminal dashboard
+
+Use the dashboard when you want a quick view of what each tracked project is doing:
+
+```bash
+python3 scripts/work_log_dashboard.py
+```
+
+It shows:
+
+- whether each tracked path is a valid git repo
+- whether the page log looks synced with the latest commit history
+- whether the working tree is clean or dirty
+- the latest git commit and latest published work-log entry for each project
+
+If you want to refresh first and then inspect the dashboard:
+
+```bash
+python3 scripts/work_log_dashboard.py --refresh
+```
+
 ## Local project list
 
 - Copy `work-log.projects.example.json` to `work-log.projects.json`
