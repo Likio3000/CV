@@ -1,10 +1,5 @@
-const workLogSummary = document.querySelector("[data-work-log-summary]");
 const workLogList = document.querySelector("[data-work-log-list]");
-const workLogData = window.WORK_LOG_DATA || { generatedAt: null, entries: [] };
-
-if (workLogSummary) {
-  workLogSummary.textContent = buildSummary(workLogData);
-}
+const workLogData = window.WORK_LOG_DATA || { entries: [] };
 
 if (workLogList) {
   if (!Array.isArray(workLogData.entries) || workLogData.entries.length === 0) {
@@ -19,38 +14,14 @@ if (workLogList) {
   }
 }
 
-function buildSummary(data) {
-  if (!data.generatedAt) {
-    return "No generated work log data found yet.";
-  }
-
-  const entryCount = Array.isArray(data.entries) ? data.entries.length : 0;
-  const projectCount = data.projectCount || 0;
-  const structuredCount = data.structuredProjectCount || 0;
-  const gitFallbackCount = data.gitFallbackProjectCount || 0;
-
-  return [
-    `Updated ${formatDateTime(data.generatedAt)}.`,
-    `${entryCount} chronological entries across ${projectCount} projects.`,
-    structuredCount > 0
-      ? `${structuredCount} project${structuredCount === 1 ? "" : "s"} using structured Codex notes.`
-      : "No structured Codex notes yet.",
-    gitFallbackCount > 0
-      ? `${gitFallbackCount} project${gitFallbackCount === 1 ? "" : "s"} currently using git history as fallback.`
-      : ""
-  ]
-    .filter(Boolean)
-    .join(" ");
-}
-
 function renderEntry(entry) {
   const project = escapeHtml(entry.project || "Project");
   const title = escapeHtml(entry.title || "Project activity");
   const summary = entry.summary ? `<p class="log-entry-summary">${escapeHtml(entry.summary)}</p>` : "";
-  const source = escapeHtml(entry.sourceLabel || "Generated activity");
   const workedOn = renderListSection("Worked on", entry.workedOn || []);
   const issues = renderIssuesSection(entry.issues || []);
   const goals = renderListSection("Goals reached", entry.goals || []);
+  const lineStats = renderLineStats(entry.lineStats);
   const repoLink = entry.repoUrl
     ? `<a class="log-entry-link" href="${escapeHtml(entry.repoUrl)}" target="_blank" rel="noopener">Repo</a>`
     : "";
@@ -58,13 +29,15 @@ function renderEntry(entry) {
   return `
     <article class="log-entry">
       <header class="log-entry-header">
-        <div>
+        <div class="log-entry-main">
           <div class="log-entry-meta">
-            <span>${formatDate(entry.date || entry.timestamp)}</span>
+            <span>${formatTimestamp(entry.timestamp || entry.date)}</span>
             <span>${project}</span>
-            <span>${source}</span>
           </div>
-          <h2 class="log-entry-title">${title}</h2>
+          <div class="log-entry-title-row">
+            <h2 class="log-entry-title">${title}</h2>
+            ${lineStats}
+          </div>
         </div>
         ${repoLink}
       </header>
@@ -73,6 +46,26 @@ function renderEntry(entry) {
       ${issues}
       ${goals}
     </article>
+  `;
+}
+
+function renderLineStats(lineStats) {
+  if (!lineStats || typeof lineStats !== "object") {
+    return "";
+  }
+
+  const additions = Number.isFinite(Number(lineStats.added)) ? Number(lineStats.added) : null;
+  const deletions = Number.isFinite(Number(lineStats.deleted)) ? Number(lineStats.deleted) : null;
+
+  if (additions === null && deletions === null) {
+    return "";
+  }
+
+  return `
+    <div class="log-entry-commit-stats" aria-label="Commit line counts">
+      ${additions !== null ? `<span class="log-entry-stat log-entry-stat-add">+${additions}</span>` : ""}
+      ${deletions !== null ? `<span class="log-entry-stat log-entry-stat-del">-${deletions}</span>` : ""}
+    </div>
   `;
 }
 
@@ -118,7 +111,7 @@ function renderIssuesSection(items) {
   `;
 }
 
-function formatDate(value) {
+function formatTimestamp(value) {
   if (!value) {
     return "Unknown date";
   }
@@ -128,18 +121,10 @@ function formatDate(value) {
   return new Intl.DateTimeFormat("en-AU", {
     day: "numeric",
     month: "short",
-    year: "numeric"
-  }).format(new Date(normalized));
-}
-
-function formatDateTime(value) {
-  return new Intl.DateTimeFormat("en-AU", {
-    day: "numeric",
-    month: "short",
     year: "numeric",
     hour: "numeric",
     minute: "2-digit"
-  }).format(new Date(value));
+  }).format(new Date(normalized));
 }
 
 function escapeHtml(value) {

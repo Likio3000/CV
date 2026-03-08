@@ -137,6 +137,7 @@ def read_structured_entries(
           "workedOn": worked_on,
           "issues": issues,
           "goals": goals,
+          "lineStats": normalize_line_stats(payload),
           "repoUrl": repo_url,
           "sourceLabel": "Codex note",
         }
@@ -189,10 +190,11 @@ def read_git_entries(
         "timestamp": timestamp.isoformat(timespec="seconds"),
         "project": project_name,
         "title": subject,
-        "summary": f"Git commit {short_hash} captured from recent git history.",
+        "summary": "",
         "workedOn": [],
         "issues": [],
         "goals": [],
+        "lineStats": read_commit_line_stats(project_path, short_hash),
         "repoUrl": repo_url,
         "sourceLabel": "Git history",
         "commitHash": short_hash,
@@ -232,6 +234,67 @@ def ensure_string_list(value: Any) -> List[str]:
   if isinstance(value, list):
     return [str(item) for item in value if str(item).strip()]
   return [str(value)]
+
+
+def normalize_line_stats(payload: Dict[str, Any]) -> Optional[Dict[str, int]]:
+  raw_stats = payload.get("lineStats")
+  added: Optional[int] = None
+  deleted: Optional[int] = None
+
+  if isinstance(raw_stats, dict):
+    added = coerce_optional_int(raw_stats.get("added"))
+    deleted = coerce_optional_int(raw_stats.get("deleted"))
+  else:
+    added = coerce_optional_int(payload.get("linesAdded") or payload.get("lines_added"))
+    deleted = coerce_optional_int(payload.get("linesDeleted") or payload.get("lines_deleted"))
+
+  if added is None and deleted is None:
+    return None
+
+  return {"added": added or 0, "deleted": deleted or 0}
+
+
+def coerce_optional_int(value: Any) -> Optional[int]:
+  if value in (None, ""):
+    return None
+
+  try:
+    return int(value)
+  except (TypeError, ValueError):
+    return None
+
+
+def read_commit_line_stats(project_path: Path, commit_hash: str) -> Optional[Dict[str, int]]:
+  result = subprocess.run(
+    ["git", "-C", str(project_path), "show", "--numstat", "--format=", commit_hash],
+    check=False,
+    capture_output=True,
+    text=True,
+  )
+  if result.returncode != 0:
+    return None
+
+  added = 0
+  deleted = 0
+  has_numeric_stats = False
+
+  for line in result.stdout.splitlines():
+    parts = line.split("\t", 2)
+    if len(parts) != 3:
+      continue
+
+    add_text, del_text, _path = parts
+    if add_text.isdigit():
+      added += int(add_text)
+      has_numeric_stats = True
+    if del_text.isdigit():
+      deleted += int(del_text)
+      has_numeric_stats = True
+
+  if not has_numeric_stats:
+    return None
+
+  return {"added": added, "deleted": deleted}
 
 
 def parse_timestamp(value: Optional[str]) -> datetime:

@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Alex Bethune | Work Logs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,7 +13,15 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Space+Grotesk:wght@400;500;600&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" data-cache-bust-style>
+    <script>
+      (function() {
+        const styleLink = document.querySelector("[data-cache-bust-style]");
+        if (styleLink) {
+          styleLink.href = `styles.css?v=${Date.now()}`;
+        }
+      }());
+    </script>
   </head>
   <body class="work-logs-page">
     <div class="orb orb-1" aria-hidden="true"></div>
@@ -36,20 +47,29 @@
         <div class="hero-text reveal">
           <p class="eyebrow">Cross-Project Activity</p>
           <h1>Work Logs</h1>
-          <p class="lede">
-            Chronological updates generated from active project histories.
-          </p>
         </div>
-      </section>
-
-      <section class="log-summary reveal">
-        <p data-work-log-summary></p>
       </section>
 
       <section class="log-feed reveal" data-work-log-list></section>
     </main>
 
-    <script src="work-log-data.js"></script>
-    <script src="work-log.js"></script>
+    <script>
+      (function() {
+        const stamp = Date.now();
+
+        function appendScript(src, onload) {
+          const script = document.createElement("script");
+          script.src = `${src}?v=${stamp}`;
+          if (onload) {
+            script.onload = onload;
+          }
+          document.body.appendChild(script);
+        }
+
+        appendScript("work-log-data.js", function() {
+          appendScript("work-log.js");
+        });
+      }());
+    </script>
   </body>
 </html>

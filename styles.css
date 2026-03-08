@@ -288,31 +288,16 @@ main {
   display: block;
 }
 
-.log-summary,
 .log-feed {
   max-width: 1120px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.log-summary {
-  margin-top: 16px;
-}
-
-.log-summary p {
-  margin: 0;
-  padding: 16px 18px;
-  border-radius: 18px;
-  background: rgba(255, 250, 242, 0.88);
-  border: 1px solid var(--border);
-  box-shadow: 0 12px 28px rgba(28, 26, 22, 0.08);
-  color: var(--muted);
-}
-
 .log-feed {
   display: grid;
   gap: 16px;
-  margin-top: 24px;
+  margin-top: 8px;
 }
 
 .log-entry {
@@ -332,6 +317,11 @@ main {
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
+}
+
+.log-entry-main {
+  flex: 1;
+  min-width: 0;
 }
 
 .log-entry-meta {
@@ -357,6 +347,48 @@ main {
 .log-entry-title {
   margin: 0;
   font-size: 1.45rem;
+}
+
+.log-entry-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.log-entry-title-row .log-entry-title {
+  flex: 1 1 360px;
+  min-width: 0;
+}
+
+.log-entry-commit-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2px;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+}
+
+.log-entry-stat {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.log-entry-stat-add {
+  background: rgba(47, 125, 50, 0.12);
+  color: #2f7d32;
+}
+
+.log-entry-stat-del {
+  background: rgba(255, 107, 53, 0.12);
+  color: var(--accent-dark);
 }
 
 .log-entry-summary {
