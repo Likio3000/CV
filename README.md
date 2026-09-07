@@ -12,13 +12,13 @@ No package installation, build step, API keys or backend are needed. From the re
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8000/`. The CV and project summaries work without JavaScript. The development history uses the committed `work-log-data.js` snapshot. Fonts are requested from Google Fonts, with system fallbacks when offline.
+Open `http://127.0.0.1:8000/`. The CV and project summaries work without JavaScript. The development history uses the committed `work-log-data.js` snapshot. Inter is self-hosted with its OFL license and system fallbacks; the site makes no third-party runtime requests.
 
 ## Pages and content
 
 - `index.html`: profile, selected work, experience, skills, education and contact links. The experience and education were transcribed from the existing CV image; no additional qualifications or employment outcomes are claimed. The existing PDF download remains available.
 - `portfolio.html`: Alpha Evolve, VIC Energy Demand, Typing Quest and Senda. Each summary covers the question, implementation, engineering decisions and evidence. Senda links to its rebuild PR and branch while that version is in review.
-- `work-logs.html`: selected historical development entries. The export date is visible; this is an archive, not a live contribution monitor or measure of productivity.
+- `work-logs.html`: the original token-activity screenshot supplied on 7 September 2026, with an accessible full-size viewer, followed by a separate development archive exported on 9 March 2026. Project filters and batches of 12 changes keep the archive readable. Each change links to its commit when a valid hash is available. Token usage and code activity have separate sources and dates.
 - `public-projects.json`: the explicit selection of repositories eligible for the public archive. The log generator skips repositories outside this list before reading their activity.
 
 The HTML CV has a print stylesheet. Use the browser's Print command for a text-based printout; the downloadable original PDF is kept unchanged.
@@ -28,11 +28,12 @@ The HTML CV has a print stylesheet. Use the browser's Print command for a text-b
 ```sh
 python3 -B -m unittest discover -s tests -v
 node --check work-log.js
+node --test tests/*.test.mjs
 ```
 
-GitHub Actions runs these checks on pushes and pull requests. Tests cover document landmarks, navigation, local resources and anchors, PDF availability, the public project selection and exclusion of unselected projects from log generation.
+GitHub Actions runs these checks on pushes and pull requests. Tests cover document landmarks, navigation, local resources and anchors, PDF availability, public project selection, exclusion of unselected projects from log generation, archive filtering and pagination, source dates and safe commit links.
 
-For browser acceptance, check all three pages at desktop and mobile widths, keyboard navigation and skip links, the PDF download, repository links and the no-JavaScript CV/portfolio. The archive additionally needs a rendering check with its committed dataset. Automated accessibility scans do not establish compatibility with every assistive technology.
+For browser acceptance, check all three pages at desktop and mobile widths, keyboard navigation and skip links, the PDF download, repository links and the no-JavaScript CV/portfolio. Also check archive filters, load-more focus, the screenshot dialog (Escape and focus return), mobile image panning and the original-image link without JavaScript. Automated accessibility scans do not establish compatibility with every assistive technology.
 
 ## Maintain and publish
 

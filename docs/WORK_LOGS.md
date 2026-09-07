@@ -96,4 +96,10 @@ That writes to `.codex/work-log.jsonl` inside the target project.
 
 `public-projects.json` is the publication allowlist. Before reading a project's activity, the generator checks its repository URL against that selection. Unselected, private or local-only projects are skipped. Add a repository only after checking that it is public and intended for this portfolio.
 
-The web page identifies the export date as a historical snapshot. Its heatmap counts only entries included in that snapshot; it does not represent all GitHub contributions, time worked or productivity. Preview and review the generated file before committing it.
+The development archive identifies its export date and only contains selected entries. The browser filters this snapshot by project and displays 12 changes at a time. Repository links are additionally restricted in `work-log-model.mjs`; update that selection together with `public-projects.json` when adding a public project. Preview and review the generated file before committing it.
+
+## Token activity image
+
+The token panel is the unchanged screenshot supplied by Alex on 7 September 2026, stored as `assets/token-activity-2026-09-07.png`. It is independent of the development archive, which was exported on 9 March 2026. Its embedded Daily/Weekly/Cumulative labels are part of the image, not interactive controls. The full-size viewer supports keyboard dismissal and horizontal panning on narrow screens. Without JavaScript, the link opens the original image directly.
+
+To update the panel, add the new original image, update both image references, their dimensions and alternative text, and the visible capture date. Do not derive token metrics from the commit archive or present either source as time worked or productivity.

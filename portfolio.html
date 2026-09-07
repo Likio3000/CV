@@ -6,279 +6,392 @@
     <title>Alex Bethune | Selected Data &amp; Software Projects</title>
     <meta
       name="description"
-      content="Explore Alpha Evolve, VIC Energy Demand, Typing Quest and Senda: selected data, research and software projects by Alex Bethune."
+      content="Four selected data, research and software projects: Alpha Evolve, VIC Energy Demand, Typing Quest and Senda."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="assets/fonts/inter-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="portfolio-page">
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <div class="orb orb-1" aria-hidden="true"></div>
-    <div class="orb orb-2" aria-hidden="true"></div>
-    <div class="orb orb-3" aria-hidden="true"></div>
-
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="Alex Bethune, home"
         >Alex Bethune</a
       >
-      <nav class="site-nav" aria-label="Primary">
-        <a class="nav-link-cv" href="index.html">CV</a>
-        <a
-          class="active nav-link-portfolio"
-          href="portfolio.html"
-          aria-current="page"
-          >Portfolio</a
-        >
-        <a class="nav-link-worklogs" href="work-logs.html">Work Logs</a>
+      <nav aria-label="Primary">
+        <a href="index.html">CV</a
+        ><a href="portfolio.html" aria-current="page">Portfolio</a
+        ><a href="work-logs.html">Work Logs</a>
       </nav>
-      <div class="header-actions">
-        <a
-          class="btn btn-github"
-          href="https://github.com/Likio3000"
-          target="_blank"
-          rel="noopener"
-        >
-          View GitHub
-        </a>
-      </div>
+      <a
+        class="header-action"
+        href="https://github.com/Likio3000"
+        target="_blank"
+        rel="noopener"
+        >GitHub
+        <svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path
+            d="M5 15 15 5M5 5h10v10"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          /></svg
+      ></a>
     </header>
-
     <main id="main-content" tabindex="-1">
-      <section class="hero hero-slim portfolio-hero">
-        <div class="hero-text">
-          <h1>Selected work</h1>
-          <p class="lede">
-            Four projects across data, research and software. Each shows a
-            different part of how I build: framing a problem, implementing a
-            system and checking its behaviour.
-          </p>
-        </div>
+      <section class="page-intro">
+        <h1>Selected work.</h1>
+        <p>Four projects across data, research and software.</p>
       </section>
-      <section class="projects" aria-labelledby="projects-title">
-        <h2 id="projects-title" class="sr-only">Project case studies</h2>
-        <div class="project-grid portfolio-project-grid curated-projects">
-          <article class="project-card featured" id="alpha-evolve">
-            <div class="card-label">Research systems</div>
-            <h3>Alpha Evolve</h3>
+      <section class="project-list" aria-label="Project case studies">
+        <article class="project-row" id="alpha-evolve">
+          <div class="project-index">
+            <span class="project-number">01</span>
+            <p>Research systems</p>
+          </div>
+          <div class="project-main">
+            <div class="project-name"><h2>Alpha Evolve</h2></div>
             <p class="project-question">
-              How can candidate trading signals be generated and evaluated
-              systematically?
+              Generating and evaluating trading signals systematically.
             </p>
-            <dl class="project-details">
-              <div>
-                <dt>What I built</dt>
-                <dd>
-                  A Python pipeline for evolutionary search, signal evaluation
-                  and backtesting, with a dashboard to run and inspect
-                  experiments.
-                </dd>
-              </div>
-              <div>
-                <dt>Engineering focus</dt>
-                <dd>
-                  Separating search from evaluation and making experimental
-                  settings and results inspectable.
-                </dd>
-              </div>
-              <div>
-                <dt>Evidence to explore</dt>
-                <dd>
+            <p>
+              A Python pipeline for evolutionary search, signal evaluation and
+              backtesting, with a dashboard to inspect experiments.
+            </p>
+          </div>
+          <div class="project-focus">
+            <h3>Engineering focus</h3>
+            <p>
+              Separate search from evaluation. Keep settings and results
+              inspectable.
+            </p>
+            <p class="project-stack">Python · TypeScript</p>
+          </div>
+          <div class="project-actions">
+            <a
+              class="text-link"
+              href="https://github.com/Likio3000/Alpha_Evolve"
+              target="_blank"
+              rel="noopener"
+              aria-label="Explore repository: Alpha Evolve"
+              >Explore repository
+              <svg
+                class="icon"
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M5 15 15 5M5 5h10v10"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></a>
+            <details>
+              <summary>
+                Evidence &amp; limits<span
+                  class="disclosure-mark"
+                  aria-hidden="true"
+                ></span>
+              </summary>
+              <div class="evidence-content">
+                <p>
                   Research documentation, pipeline code, tests and dashboard
                   source. Historical experiments are research results, not a
                   forecast of live performance.
-                </dd>
+                </p>
+                <a
+                  class="text-link"
+                  href="https://github.com/Likio3000/Alpha_Evolve#readme"
+                  target="_blank"
+                  rel="noopener"
+                  >Read the approach
+                  <svg
+                    class="icon"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M5 15 15 5M5 5h10v10"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg
+                ></a>
               </div>
-            </dl>
-            <p class="project-stack">
-              Python · TypeScript · Research pipelines
-            </p>
-            <div class="card-links">
-              <a
-                class="btn"
-                href="https://github.com/Likio3000/Alpha_Evolve"
-                target="_blank"
-                rel="noopener"
-                >Explore Alpha Evolve</a
-              ><a
-                class="inline-link"
-                href="https://github.com/Likio3000/Alpha_Evolve#readme"
-                target="_blank"
-                rel="noopener"
-                >Read the approach</a
-              >
-            </div>
-          </article>
-          <article class="project-card" id="vic-energy">
-            <div class="card-label">Data &amp; forecasting</div>
-            <h3>VIC Energy Demand</h3>
+            </details>
+          </div>
+        </article>
+        <article class="project-row" id="vic-energy">
+          <div class="project-index">
+            <span class="project-number">02</span>
+            <p>Data &amp; forecasting</p>
+          </div>
+          <div class="project-main">
+            <div class="project-name"><h2>VIC Energy Demand</h2></div>
             <p class="project-question">
-              What can historical energy data tell us about the next day?
+              Understanding the next day through historical energy data.
             </p>
-            <dl class="project-details">
-              <div>
-                <dt>What I built</dt>
-                <dd>
-                  A data preparation and forecasting workflow for Victorian
-                  energy demand and prices, with benchmarks and a Streamlit
-                  dashboard.
-                </dd>
-              </div>
-              <div>
-                <dt>Engineering focus</dt>
-                <dd>
-                  Chronological train, validation and test splits; aligned
-                  next-day targets; checks for gaps and incomplete days.
-                </dd>
-              </div>
-              <div>
-                <dt>Evidence to explore</dt>
-                <dd>
-                  Benchmark scripts, regression tests and the case study. The
-                  dashboard currently needs locally prepared datasets; it is not
-                  a hosted live forecast.
-                </dd>
-              </div>
-            </dl>
-            <p class="project-stack">
-              Python · pandas · Machine learning · Streamlit
+            <p>
+              A preparation and forecasting workflow for Victorian demand and
+              prices, with benchmarks and a Streamlit dashboard.
             </p>
-            <div class="card-links">
-              <a
-                class="btn"
-                href="https://github.com/Likio3000/vic-energy-demand-case-study"
-                target="_blank"
-                rel="noopener"
-                >Explore VIC Energy</a
-              ><a
-                class="inline-link"
-                href="https://github.com/Likio3000/vic-energy-demand-case-study#readme"
-                target="_blank"
-                rel="noopener"
-                >Read the case study</a
+          </div>
+          <div class="project-focus">
+            <h3>Engineering focus</h3>
+            <p>
+              Chronological evaluation, aligned targets and checks for
+              incomplete days.
+            </p>
+            <p class="project-stack">Python · pandas · Streamlit</p>
+          </div>
+          <div class="project-actions">
+            <a
+              class="text-link"
+              href="https://github.com/Likio3000/vic-energy-demand-case-study"
+              target="_blank"
+              rel="noopener"
+              aria-label="Explore repository: VIC Energy Demand"
+              >Explore repository
+              <svg
+                class="icon"
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
               >
-            </div>
-          </article>
-          <article class="project-card" id="typing-quest">
-            <div class="card-label">Native software</div>
-            <h3>Typing Quest</h3>
+                <path
+                  d="M5 15 15 5M5 5h10v10"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></a>
+            <details>
+              <summary>
+                Evidence &amp; limits<span
+                  class="disclosure-mark"
+                  aria-hidden="true"
+                ></span>
+              </summary>
+              <div class="evidence-content">
+                <p>
+                  The public repository contains benchmark scripts and
+                  regression tests. Its dashboard needs locally prepared
+                  datasets. Later improvements validated in a local checkout are
+                  not represented as a published release here.
+                </p>
+                <a
+                  class="text-link"
+                  href="https://github.com/Likio3000/vic-energy-demand-case-study#readme"
+                  target="_blank"
+                  rel="noopener"
+                  >Read the case study
+                  <svg
+                    class="icon"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M5 15 15 5M5 5h10v10"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg
+                ></a>
+              </div>
+            </details>
+          </div>
+        </article>
+        <article class="project-row" id="typing-quest">
+          <div class="project-index">
+            <span class="project-number">03</span>
+            <p>Native software</p>
+          </div>
+          <div class="project-main">
+            <div class="project-name"><h2>Typing Quest</h2></div>
             <p class="project-question">
-              How can typing practice become a clear, progressive learning
-              experience?
+              Turning typing practice into a progressive learning experience.
             </p>
-            <dl class="project-details">
-              <div>
-                <dt>What I built</dt>
-                <dd>
-                  A native macOS typing trainer in SwiftUI, with generated
-                  levels, gated progression, session scoring and performance
-                  history.
-                </dd>
-              </div>
-              <div>
-                <dt>Engineering focus</dt>
-                <dd>
-                  Keeping session logic and metrics separate from the views,
-                  with unit and UI tests for gameplay and navigation.
-                </dd>
-              </div>
-              <div>
-                <dt>Evidence to explore</dt>
-                <dd>
-                  The game core, test suites and a downloadable macOS release.
-                  This is a desktop application, not a browser game.
-                </dd>
-              </div>
-            </dl>
+            <p>
+              A SwiftUI macOS trainer with generated levels, progression,
+              session scoring and performance history.
+            </p>
+          </div>
+          <div class="project-focus">
+            <h3>Engineering focus</h3>
+            <p>
+              Session logic and metrics separated from views, with unit and UI
+              tests.
+            </p>
             <p class="project-stack">Swift · SwiftUI · macOS</p>
-            <div class="card-links">
-              <a
-                class="btn"
-                href="https://github.com/Likio3000/typing-quest"
-                target="_blank"
-                rel="noopener"
-                >Explore Typing Quest</a
-              ><a
-                class="inline-link"
-                href="https://github.com/Likio3000/typing-quest/releases/tag/v1.0.0"
-                target="_blank"
-                rel="noopener"
-                >macOS release</a
+          </div>
+          <div class="project-actions">
+            <a
+              class="text-link"
+              href="https://github.com/Likio3000/typing-quest"
+              target="_blank"
+              rel="noopener"
+              aria-label="Explore repository: Typing Quest"
+              >Explore repository
+              <svg
+                class="icon"
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
               >
+                <path
+                  d="M5 15 15 5M5 5h10v10"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></a>
+            <details>
+              <summary>
+                Evidence &amp; limits<span
+                  class="disclosure-mark"
+                  aria-hidden="true"
+                ></span>
+              </summary>
+              <div class="evidence-content">
+                <p>
+                  Explore the game core, test suites and downloadable macOS
+                  release. Release availability does not imply that every UI
+                  test or operating-system combination has passed.
+                </p>
+                <a
+                  class="text-link"
+                  href="https://github.com/Likio3000/typing-quest/releases/tag/v1.0.0"
+                  target="_blank"
+                  rel="noopener"
+                  >macOS release
+                  <svg
+                    class="icon"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M5 15 15 5M5 5h10v10"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg
+                ></a>
+              </div>
+            </details>
+          </div>
+        </article>
+        <article class="project-row" id="senda">
+          <div class="project-index">
+            <span class="project-number">04</span>
+            <p>Web application</p>
+          </div>
+          <div class="project-main">
+            <div class="project-name">
+              <h2>Senda</h2>
+              <span class="review-note">Rebuild in review</span>
             </div>
-          </article>
-          <article class="project-card" id="senda">
-            <div class="card-label">Web application · Rebuild in review</div>
-            <h3>Senda</h3>
             <p class="project-question">
-              How can a focus timer stay reliable through pauses, reloads and
-              multiple tabs?
+              A focus timer that stays reliable across reloads and tabs.
             </p>
-            <dl class="project-details">
-              <div>
-                <dt>What I built</dt>
-                <dd>
-                  A React and TypeScript focus app with tasks, progress, English
-                  and Spanish, offline reopening and local backups.
-                </dd>
-              </div>
-              <div>
-                <dt>Engineering focus</dt>
-                <dd>
-                  A persisted timer deadline and atomic IndexedDB updates keep
-                  sessions consistent across reloads and tabs.
-                </dd>
-              </div>
-              <div>
-                <dt>Evidence to explore</dt>
-                <dd>
-                  The rebuild PR includes source, 44 passing tests and browser
-                  validation. It replaces the older Flask app and removes the AI
-                  integration.
-                </dd>
-              </div>
-            </dl>
-            <p class="project-stack">React · TypeScript · IndexedDB · Vitest</p>
-            <div class="card-links">
-              <a
-                class="btn"
-                href="https://github.com/Likio3000/pomodoroAPP/pull/76"
-                target="_blank"
-                rel="noopener"
-                >Review the Senda rebuild</a
-              ><a
-                class="inline-link"
-                href="https://github.com/Likio3000/pomodoroAPP/tree/likio/pomodoro-rebuild#readme"
-                target="_blank"
-                rel="noopener"
-                >Run it locally</a
+            <p>
+              A React app with tasks, progress, Spanish and English, offline
+              reopening and local backups.
+            </p>
+          </div>
+          <div class="project-focus">
+            <h3>Engineering focus</h3>
+            <p>A persisted timer deadline and atomic IndexedDB updates.</p>
+            <p class="project-stack">React · TypeScript · IndexedDB</p>
+          </div>
+          <div class="project-actions">
+            <a
+              class="text-link"
+              href="https://github.com/Likio3000/pomodoroAPP/pull/76"
+              target="_blank"
+              rel="noopener"
+              aria-label="Review rebuild: Senda"
+              >Review rebuild
+              <svg
+                class="icon"
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
               >
-            </div>
-          </article>
-        </div>
+                <path
+                  d="M5 15 15 5M5 5h10v10"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></a>
+            <details>
+              <summary>
+                Evidence &amp; limits<span
+                  class="disclosure-mark"
+                  aria-hidden="true"
+                ></span>
+              </summary>
+              <div class="evidence-content">
+                <p>
+                  The rebuild PR includes source, 44 passing tests and browser
+                  validation. It replaces the older Flask app and removes AI
+                  integration. This version remains in review.
+                </p>
+                <a
+                  class="text-link"
+                  href="https://github.com/Likio3000/pomodoroAPP/tree/likio/pomodoro-rebuild#readme"
+                  target="_blank"
+                  rel="noopener"
+                  >Run it locally
+                  <svg
+                    class="icon"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M5 15 15 5M5 5h10v10"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg
+                ></a>
+              </div>
+            </details>
+          </div>
+        </article>
       </section>
       <section class="project-method" aria-labelledby="method-title">
         <h2 id="method-title">How I work</h2>
         <p>
-          I use AI-assisted development tools alongside source review, tests and
-          hands-on validation. The repositories show the implementation and its
-          limitations so you can assess the work directly.
+          AI-assisted development, source review, tests and hands-on validation.
         </p>
-        <a class="inline-link" href="work-logs.html"
-          >Browse selected development history</a
-        >
       </section>
     </main>
-    <footer class="site-footer profile-footer">
-      <p>Alex Bethune · Data &amp; software</p>
-      <a class="inline-link" href="mailto:abethuneplou@gmail.com"
-        >Get in touch</a
-      >
+    <footer class="site-footer">
+      <a href="index.html">Alex Bethune</a>
+      <p>Data &amp; software · Melbourne</p>
     </footer>
   </body>
 </html>
