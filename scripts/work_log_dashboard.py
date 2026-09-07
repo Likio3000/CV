@@ -134,6 +134,7 @@ def build_project_snapshot(
 
   return {
     "name": project_name,
+    "family": project.get("family"),
     "path": project_path,
     "exists": exists,
     "is_git_repo": is_git_repo,
@@ -330,6 +331,8 @@ def render_project_card(*, snapshot: Dict[str, Any], colors_enabled: bool) -> No
 
   print(color_text("-" * 72, DIM, colors_enabled))
   print(f"{sync_label} {tree_label} {name}")
+  if snapshot.get("family"):
+    print(f"  {color_label('Family', colors_enabled)} {snapshot['family']}")
   print(f"  {color_label('Repo', colors_enabled)} {shorten_path(snapshot['path'])}")
   print(f"  {color_label('Last git', colors_enabled)} {format_git(snapshot['latest_git'])}")
   print(f"  {color_label('Last log', colors_enabled)} {format_log(snapshot['latest_log'])}")

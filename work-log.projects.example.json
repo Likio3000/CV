@@ -5,21 +5,24 @@
       "path": "/absolute/path/to/Alpha_Evolve"
     },
     {
-      "name": "ArcadiaFlow",
-      "path": "/absolute/path/to/ArcadiaFlow"
+      "name": "VIC Energy Demand Case Study",
+      "family": "Data Analyst",
+      "path": "/absolute/path/to/vic-energy-demand-case-study"
     },
     {
-      "name": "Data Analyst",
-      "path": "/absolute/path/to/Data_analyst"
+      "name": "Typing Quest",
+      "path": "/absolute/path/to/typing-quest"
+    },
+    {
+      "name": "Senda",
+      "path": "/absolute/path/to/pomodoroAPP"
     }
   ],
   "options": {
     "max_entries": 120,
     "git_max_commits_per_project": 24,
     "git_since_days": 180,
-    "structured_log_paths": [
-      ".codex/work-log.jsonl",
-      "work-log.jsonl"
-    ]
+    "publish_since_date": "2026-01-01",
+    "structured_log_paths": [".codex/work-log.jsonl", "work-log.jsonl"]
   }
 }

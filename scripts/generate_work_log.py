@@ -12,16 +12,20 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "work-log.projects.json"
 EXAMPLE_CONFIG_PATH = ROOT / "work-log.projects.example.json"
 OUTPUT_PATH = ROOT / "work-log-data.js"
+PUBLIC_PROJECTS_PATH = ROOT / "public-projects.json"
+DEFAULT_PUBLISH_SINCE_DATE = "2026-01-01"
 
 
 def main() -> int:
   config = load_config()
+  public_repositories = set(json.loads(PUBLIC_PROJECTS_PATH.read_text(encoding="utf-8"))["repositories"])
   options = config.get("options", {})
   git_max_commits = int(options.get("git_max_commits_per_project", 24))
   max_entries = int(
     options.get("max_entries", max(60, len(config.get("projects", [])) * git_max_commits))
   )
   git_since_days = int(options.get("git_since_days", 180))
+  publish_since = parse_date_string(options.get("publish_since_date", DEFAULT_PUBLISH_SINCE_DATE))
   structured_log_paths = options.get(
     "structured_log_paths",
     [".codex/work-log.jsonl", "work-log.jsonl"],
@@ -30,6 +34,7 @@ def main() -> int:
   entries: List[Dict[str, Any]] = []
   structured_project_count = 0
   git_fallback_project_count = 0
+  included_projects = 0
 
   for project in config.get("projects", []):
     project_path = Path(project["path"]).expanduser().resolve()
@@ -37,12 +42,20 @@ def main() -> int:
       print(f"Skipping missing project path: {project_path}", file=sys.stderr)
       continue
 
+    project_name = project["name"]
+    project_family = normalize_optional_string(project.get("family"))
     repo_url = project.get("repo_url") or read_repo_url(project_path)
+    if repo_url not in public_repositories:
+      print(f"Skipping project outside the public selection: {project_name}", file=sys.stderr)
+      continue
+    included_projects += 1
     structured_entries = read_structured_entries(
-      project_name=project["name"],
+      project_name=project_name,
+      project_family=project_family,
       project_path=project_path,
       repo_url=repo_url,
       structured_log_paths=structured_log_paths,
+      publish_since=publish_since,
     )
 
     structured_dates = {entry["date"] for entry in structured_entries}
@@ -50,12 +63,14 @@ def main() -> int:
       structured_project_count += 1
 
     git_entries = read_git_entries(
-      project_name=project["name"],
+      project_name=project_name,
+      project_family=project_family,
       project_path=project_path,
       repo_url=repo_url,
       max_commits=git_max_commits,
       since_days=git_since_days,
       skip_dates=structured_dates,
+      publish_since=publish_since,
     )
     if git_entries:
       git_fallback_project_count += 1
@@ -75,7 +90,8 @@ def main() -> int:
 
   data = {
     "generatedAt": datetime.now().astimezone().isoformat(timespec="seconds"),
-    "projectCount": len(config.get("projects", [])),
+    "publishedSince": publish_since.isoformat(),
+    "projectCount": included_projects,
     "structuredProjectCount": structured_project_count,
     "gitFallbackProjectCount": git_fallback_project_count,
     "entries": entries,
@@ -87,7 +103,7 @@ def main() -> int:
   )
 
   print(
-    f"Wrote {len(entries)} entries from {len(config.get('projects', []))} projects to {OUTPUT_PATH.name}"
+    f"Wrote {len(entries)} entries from {included_projects} public projects to {OUTPUT_PATH.name}"
   )
   return 0
 
@@ -105,9 +121,11 @@ def load_config() -> Dict[str, Any]:
 def read_structured_entries(
   *,
   project_name: str,
+  project_family: Optional[str],
   project_path: Path,
   repo_url: Optional[str],
   structured_log_paths: List[str],
+  publish_since: datetime.date,
 ) -> List[Dict[str, Any]]:
   entries: List[Dict[str, Any]] = []
 
@@ -123,6 +141,8 @@ def read_structured_entries(
 
       payload = json.loads(line)
       timestamp = parse_timestamp(payload.get("date") or payload.get("timestamp"))
+      if timestamp.date() < publish_since:
+        continue
       worked_on = ensure_string_list(payload.get("worked_on") or payload.get("workedOn"))
       goals = ensure_string_list(payload.get("goals") or payload.get("achievements"))
       issues = normalize_issues(payload)
@@ -132,6 +152,7 @@ def read_structured_entries(
           "date": timestamp.date().isoformat(),
           "timestamp": timestamp.isoformat(timespec="seconds"),
           "project": project_name,
+          "projectFamily": project_family,
           "title": payload.get("title") or f"Codex update in {project_name}",
           "summary": payload.get("summary") or "",
           "workedOn": worked_on,
@@ -151,13 +172,16 @@ def read_structured_entries(
 def read_git_entries(
   *,
   project_name: str,
+  project_family: Optional[str],
   project_path: Path,
   repo_url: Optional[str],
   max_commits: int,
   since_days: int,
   skip_dates: set[str],
+  publish_since: datetime.date,
 ) -> List[Dict[str, Any]]:
-  since_date = (datetime.now() - timedelta(days=since_days)).date().isoformat()
+  rolling_since = (datetime.now() - timedelta(days=since_days)).date()
+  since_date = max(rolling_since, publish_since).isoformat()
   command = [
     "git",
     "-C",
@@ -180,6 +204,8 @@ def read_git_entries(
   entries: List[Dict[str, Any]] = []
   for line in result.stdout.splitlines():
     timestamp_text, date_text, short_hash, subject = line.split("\x1f", 3)
+    if parse_date_string(date_text) < publish_since:
+      continue
     if date_text in skip_dates:
       continue
 
@@ -189,6 +215,7 @@ def read_git_entries(
         "date": date_text,
         "timestamp": timestamp.isoformat(timespec="seconds"),
         "project": project_name,
+        "projectFamily": project_family,
         "title": subject,
         "summary": "",
         "workedOn": [],
@@ -264,6 +291,14 @@ def coerce_optional_int(value: Any) -> Optional[int]:
     return None
 
 
+def normalize_optional_string(value: Any) -> Optional[str]:
+  if value is None:
+    return None
+
+  text = str(value).strip()
+  return text or None
+
+
 def read_commit_line_stats(project_path: Path, commit_hash: str) -> Optional[Dict[str, int]]:
   result = subprocess.run(
     ["git", "-C", str(project_path), "show", "--numstat", "--format=", commit_hash],
@@ -310,6 +345,10 @@ def parse_timestamp(value: Optional[str]) -> datetime:
   if timestamp.tzinfo is None:
     return timestamp.astimezone()
   return timestamp
+
+
+def parse_date_string(value: str) -> datetime.date:
+  return datetime.fromisoformat(value).date()
 
 
 def read_repo_url(project_path: Path) -> Optional[str]:

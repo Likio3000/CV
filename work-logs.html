@@ -1,75 +1,92 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>Alex Bethune | Work Logs</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alex Bethune | Development History</title>
+    <meta
+      name="description"
+      content="Selected development history from Alex Bethune’s public data and software projects."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Space+Grotesk:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-    >
-    <link rel="stylesheet" href="styles.css" data-cache-bust-style>
-    <script>
-      (function() {
-        const styleLink = document.querySelector("[data-cache-bust-style]");
-        if (styleLink) {
-          styleLink.href = `styles.css?v=${Date.now()}`;
-        }
-      }());
-    </script>
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="work-logs-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="orb orb-1" aria-hidden="true"></div>
     <div class="orb orb-2" aria-hidden="true"></div>
     <div class="orb orb-3" aria-hidden="true"></div>
 
     <header class="site-header">
-      <div class="brand">Alex Bethune</div>
+      <a class="brand" href="index.html" aria-label="Alex Bethune, home"
+        >Alex Bethune</a
+      >
       <nav class="site-nav" aria-label="Primary">
-        <a href="index.html">CV</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a class="active" href="work-logs.html">Work Logs</a>
+        <a class="nav-link-cv" href="index.html">CV</a>
+        <a class="nav-link-portfolio" href="portfolio.html">Portfolio</a>
+        <a
+          class="active nav-link-worklogs"
+          href="work-logs.html"
+          aria-current="page"
+          >Work Logs</a
+        >
       </nav>
       <div class="header-actions">
-        <a class="btn btn-ghost" href="https://github.com/Likio3000" target="_blank" rel="noopener">
+        <a
+          class="btn btn-github"
+          href="https://github.com/Likio3000"
+          target="_blank"
+          rel="noopener"
+        >
           View GitHub
         </a>
       </div>
     </header>
 
-    <main>
-      <section class="hero hero-slim">
+    <main id="main-content" tabindex="-1">
+      <section class="hero worklogs-hero">
         <div class="hero-text reveal">
-          <p class="eyebrow">Cross-Project Activity</p>
+          <p class="eyebrow">Selected public projects</p>
           <h1>Work Logs</h1>
+          <p class="lede">
+            A selected archive of development decisions and changes. For a
+            concise introduction to each project, start with the
+            <a class="inline-link" href="portfolio.html">portfolio</a>.
+          </p>
+          <p class="archive-note" data-archive-note>
+            Historical snapshot. This is not a live activity feed.
+          </p>
+        </div>
+        <div class="hero-visual worklogs-visual reveal">
+          <div class="tech-frame heatmap-frame">
+            <div class="worklog-heatmap-shell" data-work-log-heatmap></div>
+          </div>
         </div>
       </section>
 
-      <section class="log-feed reveal" data-work-log-list></section>
+      <section
+        class="log-feed reveal"
+        data-work-log-list
+        aria-label="Development entries"
+      ></section>
+      <noscript
+        ><p>
+          The archive needs JavaScript. The
+          <a class="inline-link" href="portfolio.html"
+            >project summaries and repository links</a
+          >
+          are available without it.
+        </p></noscript
+      >
     </main>
 
-    <script>
-      (function() {
-        const stamp = Date.now();
-
-        function appendScript(src, onload) {
-          const script = document.createElement("script");
-          script.src = `${src}?v=${stamp}`;
-          if (onload) {
-            script.onload = onload;
-          }
-          document.body.appendChild(script);
-        }
-
-        appendScript("work-log-data.js", function() {
-          appendScript("work-log.js");
-        });
-      }());
-    </script>
+    <script src="work-log-data.js" defer></script>
+    <script src="work-log.js" defer></script>
   </body>
 </html>

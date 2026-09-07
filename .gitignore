@@ -2,3 +2,5 @@
 cloudflared-cv.log
 work-log.projects.json
 Cover_Letters/
+__pycache__/
+*.pyc

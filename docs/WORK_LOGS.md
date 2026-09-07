@@ -9,6 +9,7 @@ The `Work Logs` page is generated from project activity rather than being edited
 3. If a project has no structured note for a day, the generator falls back to publishing one log entry per recent git commit.
 4. The script writes the public page data to `work-log-data.js`, which is what `work-logs.html` renders.
 5. The `max_entries` option controls how many of those generated commit entries stay published on the page.
+6. If several repos belong to the same track, give each repo its own `name` and add an optional shared `family` label.
 
 ## Low-level rebuild
 
@@ -62,6 +63,8 @@ python3 scripts/work_log_dashboard.py --refresh
 
 - Copy `work-log.projects.example.json` to `work-log.projects.json`
 - Add the local absolute paths for the projects you want tracked
+- Track sibling case studies as separate repo entries rather than one parent folder
+- Use an optional `family` field when several repos belong to the same area, for example multiple `Data Analyst` case studies
 - `work-log.projects.json` is intentionally gitignored so local filesystem paths do not get published
 
 ## Optional richer notes
@@ -88,3 +91,9 @@ python3 scripts/append_work_log.py \
 ```
 
 That writes to `.codex/work-log.jsonl` inside the target project.
+
+## Public portfolio selection
+
+`public-projects.json` is the publication allowlist. Before reading a project's activity, the generator checks its repository URL against that selection. Unselected, private or local-only projects are skipped. Add a repository only after checking that it is public and intended for this portfolio.
+
+The web page identifies the export date as a historical snapshot. Its heatmap counts only entries included in that snapshot; it does not represent all GitHub contributions, time worked or productivity. Preview and review the generated file before committing it.

@@ -1,89 +1,284 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Alex Bethune | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alex Bethune | Selected Data &amp; Software Projects</title>
+    <meta
+      name="description"
+      content="Explore Alpha Evolve, VIC Energy Demand, Typing Quest and Senda: selected data, research and software projects by Alex Bethune."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Space+Grotesk:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-    >
-    <link rel="stylesheet" href="styles.css">
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="portfolio-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="orb orb-1" aria-hidden="true"></div>
     <div class="orb orb-2" aria-hidden="true"></div>
     <div class="orb orb-3" aria-hidden="true"></div>
 
     <header class="site-header">
-      <div class="brand">Alex Bethune</div>
+      <a class="brand" href="index.html" aria-label="Alex Bethune, home"
+        >Alex Bethune</a
+      >
       <nav class="site-nav" aria-label="Primary">
-        <a href="index.html">CV</a>
-        <a class="active" href="portfolio.html">Portfolio</a>
-        <a href="work-logs.html">Work Logs</a>
+        <a class="nav-link-cv" href="index.html">CV</a>
+        <a
+          class="active nav-link-portfolio"
+          href="portfolio.html"
+          aria-current="page"
+          >Portfolio</a
+        >
+        <a class="nav-link-worklogs" href="work-logs.html">Work Logs</a>
       </nav>
       <div class="header-actions">
-        <a class="btn btn-ghost" href="https://github.com/Likio3000" target="_blank" rel="noopener">
-          My Github :D
+        <a
+          class="btn btn-github"
+          href="https://github.com/Likio3000"
+          target="_blank"
+          rel="noopener"
+        >
+          View GitHub
         </a>
       </div>
     </header>
 
-    <main>
-      <section class="hero hero-slim">
-        <div class="hero-text reveal">
-          <p class="eyebrow">Selected Work</p>
-          <h1>Portfolio</h1>
+    <main id="main-content" tabindex="-1">
+      <section class="hero hero-slim portfolio-hero">
+        <div class="hero-text">
+          <h1>Selected work</h1>
           <p class="lede">
-            My personal favorite projects i've been working on!
+            Four projects across data, research and software. Each shows a
+            different part of how I build: framing a problem, implementing a
+            system and checking its behaviour.
           </p>
         </div>
       </section>
-
-      <section class="projects reveal">
-        <div class="section-title">
-          <h2>Featured Projects</h2>
-        </div>
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="card-label">GitHub</div>
+      <section class="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title" class="sr-only">Project case studies</h2>
+        <div class="project-grid portfolio-project-grid curated-projects">
+          <article class="project-card featured" id="alpha-evolve">
+            <div class="card-label">Research systems</div>
             <h3>Alpha Evolve</h3>
-            <p>Research platform for evolving alpha factors in systematic trading, backed by a Python pipeline, backtesting suite, and dashboard UI/REST API for running and inspecting experiments.</p>
+            <p class="project-question">
+              How can candidate trading signals be generated and evaluated
+              systematically?
+            </p>
+            <dl class="project-details">
+              <div>
+                <dt>What I built</dt>
+                <dd>
+                  A Python pipeline for evolutionary search, signal evaluation
+                  and backtesting, with a dashboard to run and inspect
+                  experiments.
+                </dd>
+              </div>
+              <div>
+                <dt>Engineering focus</dt>
+                <dd>
+                  Separating search from evaluation and making experimental
+                  settings and results inspectable.
+                </dd>
+              </div>
+              <div>
+                <dt>Evidence to explore</dt>
+                <dd>
+                  Research documentation, pipeline code, tests and dashboard
+                  source. Historical experiments are research results, not a
+                  forecast of live performance.
+                </dd>
+              </div>
+            </dl>
+            <p class="project-stack">
+              Python · TypeScript · Research pipelines
+            </p>
             <div class="card-links">
-              <a class="btn btn-light" href="https://github.com/Likio3000/Alpha_Evolve" target="_blank" rel="noopener">
-                View repo
-              </a>
+              <a
+                class="btn"
+                href="https://github.com/Likio3000/Alpha_Evolve"
+                target="_blank"
+                rel="noopener"
+                >Explore Alpha Evolve</a
+              ><a
+                class="inline-link"
+                href="https://github.com/Likio3000/Alpha_Evolve#readme"
+                target="_blank"
+                rel="noopener"
+                >Read the approach</a
+              >
             </div>
           </article>
-
-          <article class="project-card">
-            <div class="card-label">GitHub</div>
-            <h3>Agent Trainner</h3>
-            <p>Personal training planner that turns availability, goals, and equipment into structured sessions, then publishes calendar-ready plans through a web app with auth and an agent backend.</p>
+          <article class="project-card" id="vic-energy">
+            <div class="card-label">Data &amp; forecasting</div>
+            <h3>VIC Energy Demand</h3>
+            <p class="project-question">
+              What can historical energy data tell us about the next day?
+            </p>
+            <dl class="project-details">
+              <div>
+                <dt>What I built</dt>
+                <dd>
+                  A data preparation and forecasting workflow for Victorian
+                  energy demand and prices, with benchmarks and a Streamlit
+                  dashboard.
+                </dd>
+              </div>
+              <div>
+                <dt>Engineering focus</dt>
+                <dd>
+                  Chronological train, validation and test splits; aligned
+                  next-day targets; checks for gaps and incomplete days.
+                </dd>
+              </div>
+              <div>
+                <dt>Evidence to explore</dt>
+                <dd>
+                  Benchmark scripts, regression tests and the case study. The
+                  dashboard currently needs locally prepared datasets; it is not
+                  a hosted live forecast.
+                </dd>
+              </div>
+            </dl>
+            <p class="project-stack">
+              Python · pandas · Machine learning · Streamlit
+            </p>
             <div class="card-links">
-              <a class="btn btn-light" href="https://github.com/Likio3000/agent-trainner" target="_blank" rel="noopener">
-                View repo
-              </a>
+              <a
+                class="btn"
+                href="https://github.com/Likio3000/vic-energy-demand-case-study"
+                target="_blank"
+                rel="noopener"
+                >Explore VIC Energy</a
+              ><a
+                class="inline-link"
+                href="https://github.com/Likio3000/vic-energy-demand-case-study#readme"
+                target="_blank"
+                rel="noopener"
+                >Read the case study</a
+              >
             </div>
-            <span class="status-pill">In progress</span>
           </article>
-
-          <article class="project-card featured">
-            <div class="card-label">GitHub</div>
-            <h3>ArcadiaFlow</h3>
-            <p>Async-first backend scaffold for multi-tenant ingestion and RAG workflows, with a companion Vite UI and active development in the public repository.</p>
+          <article class="project-card" id="typing-quest">
+            <div class="card-label">Native software</div>
+            <h3>Typing Quest</h3>
+            <p class="project-question">
+              How can typing practice become a clear, progressive learning
+              experience?
+            </p>
+            <dl class="project-details">
+              <div>
+                <dt>What I built</dt>
+                <dd>
+                  A native macOS typing trainer in SwiftUI, with generated
+                  levels, gated progression, session scoring and performance
+                  history.
+                </dd>
+              </div>
+              <div>
+                <dt>Engineering focus</dt>
+                <dd>
+                  Keeping session logic and metrics separate from the views,
+                  with unit and UI tests for gameplay and navigation.
+                </dd>
+              </div>
+              <div>
+                <dt>Evidence to explore</dt>
+                <dd>
+                  The game core, test suites and a downloadable macOS release.
+                  This is a desktop application, not a browser game.
+                </dd>
+              </div>
+            </dl>
+            <p class="project-stack">Swift · SwiftUI · macOS</p>
             <div class="card-links">
-              <a class="btn" href="https://github.com/Likio3000/ArcadiaFlow" target="_blank" rel="noopener">
-                View repo
-              </a>
+              <a
+                class="btn"
+                href="https://github.com/Likio3000/typing-quest"
+                target="_blank"
+                rel="noopener"
+                >Explore Typing Quest</a
+              ><a
+                class="inline-link"
+                href="https://github.com/Likio3000/typing-quest/releases/tag/v1.0.0"
+                target="_blank"
+                rel="noopener"
+                >macOS release</a
+              >
             </div>
-            <span class="status-pill">In progress</span>
+          </article>
+          <article class="project-card" id="senda">
+            <div class="card-label">Web application · Rebuild in review</div>
+            <h3>Senda</h3>
+            <p class="project-question">
+              How can a focus timer stay reliable through pauses, reloads and
+              multiple tabs?
+            </p>
+            <dl class="project-details">
+              <div>
+                <dt>What I built</dt>
+                <dd>
+                  A React and TypeScript focus app with tasks, progress, English
+                  and Spanish, offline reopening and local backups.
+                </dd>
+              </div>
+              <div>
+                <dt>Engineering focus</dt>
+                <dd>
+                  A persisted timer deadline and atomic IndexedDB updates keep
+                  sessions consistent across reloads and tabs.
+                </dd>
+              </div>
+              <div>
+                <dt>Evidence to explore</dt>
+                <dd>
+                  The rebuild PR includes source, 44 passing tests and browser
+                  validation. It replaces the older Flask app and removes the AI
+                  integration.
+                </dd>
+              </div>
+            </dl>
+            <p class="project-stack">React · TypeScript · IndexedDB · Vitest</p>
+            <div class="card-links">
+              <a
+                class="btn"
+                href="https://github.com/Likio3000/pomodoroAPP/pull/76"
+                target="_blank"
+                rel="noopener"
+                >Review the Senda rebuild</a
+              ><a
+                class="inline-link"
+                href="https://github.com/Likio3000/pomodoroAPP/tree/likio/pomodoro-rebuild#readme"
+                target="_blank"
+                rel="noopener"
+                >Run it locally</a
+              >
+            </div>
           </article>
         </div>
       </section>
+      <section class="project-method" aria-labelledby="method-title">
+        <h2 id="method-title">How I work</h2>
+        <p>
+          I use AI-assisted development tools alongside source review, tests and
+          hands-on validation. The repositories show the implementation and its
+          limitations so you can assess the work directly.
+        </p>
+        <a class="inline-link" href="work-logs.html"
+          >Browse selected development history</a
+        >
+      </section>
     </main>
-
+    <footer class="site-footer profile-footer">
+      <p>Alex Bethune · Data &amp; software</p>
+      <a class="inline-link" href="mailto:abethuneplou@gmail.com"
+        >Get in touch</a
+      >
+    </footer>
   </body>
 </html>
