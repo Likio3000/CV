@@ -51,7 +51,7 @@ class PortfolioIntegrityTests(unittest.TestCase):
         text = ' '.join(Document((ROOT / 'index.html').read_text()).text)
         for content in ('Woolworths', 'Fujifilm', 'Junior Data Analyst', 'Dataquest', 'Python'):
             self.assertIn(content, text)
-        self.assertTrue((ROOT / 'English CV-2.pdf').read_bytes().startswith(b'%PDF-'))
+        self.assertTrue((ROOT / 'Alex-Bethune-CV.pdf').read_bytes().startswith(b'%PDF-'))
 
     def test_public_pages_do_not_link_unselected_repositories(self):
         allowed = set(json.loads((ROOT / 'public-projects.json').read_text())['repositories'])

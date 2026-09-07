@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alex Bethune | Selected Data &amp; Software Projects</title>
-    <meta name="description" content="Four selected data, research and software projects: Alpha Evolve, VIC Energy Demand, Typing Quest and Senda.">
+    <meta name="description" content="Selected data engineering, forecasting, research and software projects by Alex Bethune.">
     <meta name="theme-color" content="#f3efe5">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -17,25 +17,94 @@
       <nav aria-label="Primary">
         <a href="index.html"><span class="nav-number" aria-hidden="true">01</span>CV</a><a href="portfolio.html" aria-current="page"><span class="nav-number" aria-hidden="true">02</span>Portfolio</a>
       </nav>
-      <div class="header-utilities"><a href="English%20CV-2.pdf" download="" class="header-action">Download PDF<svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
+      <div class="header-utilities"><a href="Alex-Bethune-CV.pdf" download="" class="header-action">Download PDF<svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
           <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><a href="https://github.com/Likio3000" target="_blank" rel="noopener" class="header-action">GitHub<svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
           <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div></header>
     <main id="main-content" tabindex="-1">
       <section class="page-intro">
         <h1>Selected work.</h1>
-        <p>Four projects across data, research and software.</p>
+        <p>Data pipelines and forecasting, followed by research and software.</p>
       </section>
-      <figure class="portfolio-activity" id="token-activity" aria-label="Token activity snapshot">
-        <img class="activity-image" src="assets/token-activity-light-2026-09-07.png" width="958" height="210" alt="Daily token activity from October to September, shown as a seven-row heatmap. Darker squares indicate higher usage. Captured 7 September 2026.">
-        <figcaption>
-          <span>Token usage · <time datetime="2026-09-07">7 Sep 2026</time> snapshot</span>
-          <a class="text-link" href="assets/token-activity-light-2026-09-07.png" data-view-image aria-haspopup="dialog">View full size<svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </figcaption>
-      </figure>
+
       <section class="project-list" aria-label="Project case studies">
+        <article class="project-row" id="devpulse">
+          <div class="project-index"><span class="project-number">01</span></div>
+          <div class="project-content">
+            <div class="project-main">
+              <div class="project-name"><h2>DevPulse Data Platform</h2><p class="project-category">Data engineering</p></div>
+              <p class="project-question">Publishing trustworthy metrics from public GitHub activity.</p>
+              <p>A local batch and streaming platform with layered storage, data contracts, quarantine and operational monitoring.</p>
+            </div>
+            <div class="project-proof">
+              <div class="project-focus"><h3>Engineering focus</h3><p>Reconcile batch and streaming aggregates; surface source coverage changes before interpreting activity.</p></div>
+              <div class="project-tech"><h3>Technology</h3><p class="project-stack">Python · SQL · DuckDB · dbt · ClickHouse</p></div>
+              <details open><summary>Evidence &amp; limits<span class="disclosure-mark" aria-hidden="true"></span></summary><div class="evidence-content"><p>The local reference run processed 2,505,296 events. A clean installation passed 99 Python tests. Docker service deployment was outside that validation; the repository is not publicly released.</p></div></details>
+            </div>
+            <p class="availability-note">Local project · Code not publicly released</p>
+          </div>
+        </article>
+        <article class="project-row" id="vic-energy">
+          <div class="project-index">
+            <span class="project-number">02</span>
+            </div>
+          <div class="project-content"><div class="project-main">
+            <div class="project-name"><h2>VIC Energy Forecasting</h2><p class="project-category">Data &amp; forecasting</p>
+          </div>
+            <p class="project-question">
+              Understanding the next day through historical energy data.
+            </p>
+            <p>
+              A three-stage local study: prepare Victorian energy data, compare
+              forecasting models and monitor errors with an XGBoost forecast and a shadow GRU.
+            </p>
+          </div>
+          <div class="project-proof"><div class="project-focus">
+            <h3>Engineering focus</h3>
+            <p>
+              Chronological evaluation, aligned targets and checks for
+              incomplete days.
+            </p>
+            </div>
+          <div class="project-tech"><h3>Technology</h3><p class="project-stack">Python · pandas · Streamlit</p>
+          </div><details open="">
+              <summary>
+                Evidence &amp; limits<span class="disclosure-mark" aria-hidden="true"></span>
+              </summary>
+              <div class="evidence-content">
+                <p>
+                  The local comparison uses the same 359 target dates: XGBoost MAE
+                  6,408 MWh and GRU 6,414 MWh, effectively a near-tie. The monitor
+                  separates generation timing rather than treating reconstructed forecasts as live evidence.
+                  Only the initial study is public; the later stages and recent fixes remain local.
+                </p>
+                <a class="text-link" href="https://github.com/Likio3000/vic-energy-demand-case-study#readme" target="_blank" rel="noopener">Read the case study
+                  <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+              </div>
+            </details>
+          </div><a class="text-link" href="https://github.com/Likio3000/vic-energy-demand-case-study" target="_blank" rel="noopener" aria-label="Explore repository: VIC Energy Demand">Explore repository
+              <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+            </div></article>
+        <article class="project-row" id="nyc-taxi">
+          <div class="project-index"><span class="project-number">03</span></div>
+          <div class="project-content">
+            <div class="project-main">
+              <div class="project-name"><h2>NYC Taxi Data Engineering</h2><p class="project-category">Data engineering</p></div>
+              <p class="project-question">Turning monthly trip files into auditable analytical tables.</p>
+              <p>An ingestion and warehouse workflow for 5,972,150 source trips, with dimensional models, quality checks and a monthly report.</p>
+            </div>
+            <div class="project-proof">
+              <div class="project-focus"><h3>Engineering focus</h3><p>Keep source records intact, audit out-of-month pickups and aggregate reports at the declared grain.</p></div>
+              <div class="project-tech"><h3>Technology</h3><p class="project-stack">Python · SQL · DuckDB · dbt</p></div>
+              <details open><summary>Evidence &amp; limits<span class="disclosure-mark" aria-hidden="true"></span></summary><div class="evidence-content"><p>A fresh local warehouse published 5,900,472 trips and passed 14 dbt tests, eight quality checks and seven Python tests. Spark is optional and was not included; the repository is not publicly released.</p></div></details>
+            </div>
+            <p class="availability-note">Local project · Code not publicly released</p>
+          </div>
+        </article>
         <article class="project-row" id="alpha-evolve">
           <div class="project-index">
-            <span class="project-number">01</span>
+            <span class="project-number">04</span>
             </div>
           <div class="project-content"><div class="project-main">
             <div class="project-name"><h2>Alpha Evolve</h2><p class="project-category">Research systems</p>
@@ -75,52 +144,9 @@
               <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
                 <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
             </div></article>
-        <article class="project-row" id="vic-energy">
-          <div class="project-index">
-            <span class="project-number">02</span>
-            </div>
-          <div class="project-content"><div class="project-main">
-            <div class="project-name"><h2>VIC Energy Demand</h2><p class="project-category">Data &amp; forecasting</p>
-          </div>
-            <p class="project-question">
-              Understanding the next day through historical energy data.
-            </p>
-            <p>
-              A preparation and forecasting workflow for Victorian demand and
-              prices, with benchmarks and a Streamlit dashboard.
-            </p>
-          </div>
-          <div class="project-proof"><div class="project-focus">
-            <h3>Engineering focus</h3>
-            <p>
-              Chronological evaluation, aligned targets and checks for
-              incomplete days.
-            </p>
-            </div>
-          <div class="project-tech"><h3>Technology</h3><p class="project-stack">Python · pandas · Streamlit</p>
-          </div><details open="">
-              <summary>
-                Evidence &amp; limits<span class="disclosure-mark" aria-hidden="true"></span>
-              </summary>
-              <div class="evidence-content">
-                <p>
-                  The public repository contains benchmark scripts and
-                  regression tests. Its dashboard needs locally prepared
-                  datasets. Later improvements validated in a local checkout are
-                  not represented as a published release here.
-                </p>
-                <a class="text-link" href="https://github.com/Likio3000/vic-energy-demand-case-study#readme" target="_blank" rel="noopener">Read the case study
-                  <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
-                    <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-              </div>
-            </details>
-          </div><a class="text-link" href="https://github.com/Likio3000/vic-energy-demand-case-study" target="_blank" rel="noopener" aria-label="Explore repository: VIC Energy Demand">Explore repository
-              <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-            </div></article>
         <article class="project-row" id="typing-quest">
           <div class="project-index">
-            <span class="project-number">03</span>
+            <span class="project-number">05</span>
             </div>
           <div class="project-content"><div class="project-main">
             <div class="project-name"><h2>Typing Quest</h2><p class="project-category">Native software</p>
@@ -162,7 +188,7 @@
             </div></article>
         <article class="project-row" id="senda">
           <div class="project-index">
-            <span class="project-number">04</span>
+            <span class="project-number">06</span>
             </div>
           <div class="project-content"><div class="project-main">
             <div class="project-name">
@@ -202,6 +228,17 @@
               <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
                 <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
             </div></article>
+      </section>
+      <section class="activity-context" aria-labelledby="activity-title">
+        <h2 id="activity-title">At the keyboard</h2>
+        <p>A personal snapshot of AI-assisted work. Token usage records tool activity, not project quality or outcomes.</p>
+      <figure class="portfolio-activity" id="token-activity" aria-label="Token activity snapshot">
+        <img class="activity-image" src="assets/token-activity-light-2026-09-07.png" width="958" height="210" alt="Daily token activity from October to September, shown as a seven-row heatmap. Darker squares indicate higher usage. Captured 7 September 2026.">
+        <figcaption>
+          <span>Token usage · <time datetime="2026-09-07">7 Sep 2026</time> snapshot</span>
+          <a class="text-link" href="assets/token-activity-light-2026-09-07.png" data-view-image aria-haspopup="dialog">View full size<svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </figcaption>
+      </figure>
       </section>
       <section class="project-method" aria-labelledby="method-title">
         <h2 id="method-title">How I work</h2>

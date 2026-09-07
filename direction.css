@@ -163,3 +163,10 @@ main,.site-footer{width:calc(100% - 304px);max-width:1180px;margin-left:256px;ma
  .header-action{font-size:10px;min-height:24px}
  .profile-hero h1{order:1}.profile-copy{order:2}.portrait-figure{order:3}
 }
+
+/* Keep activity secondary to the selected work. */
+.availability-note{font-size:12px;color:var(--muted);margin-top:16px}
+.activity-context{padding-top:34px;border-top:1px solid var(--line)}
+.activity-context h2{font-size:30px;margin-bottom:12px}
+.activity-context>p{max-width:65ch;color:var(--muted)}
+.activity-context .portfolio-activity{margin-top:24px}
