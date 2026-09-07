@@ -1,155 +1,17 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Alex Bethune | Work Logs</title>
-    <meta
-      name="description"
-      content="Token activity snapshot and a filterable development archive from selected public projects."
-    />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link
-      rel="preload"
-      href="assets/fonts/inter-latin.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="0;url=portfolio.html#token-activity">
+    <meta name="robots" content="noindex">
+    <title>Alex Bethune | Portfolio</title>
+    <link rel="canonical" href="portfolio.html">
   </head>
-  <body class="logs-page">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Alex Bethune, home"
-        >Alex Bethune</a
-      >
-      <nav aria-label="Primary">
-        <a href="index.html">CV</a><a href="portfolio.html">Portfolio</a
-        ><a href="work-logs.html" aria-current="page">Work Logs</a>
-      </nav>
-      <a
-        class="header-action"
-        href="https://github.com/Likio3000"
-        target="_blank"
-        rel="noopener"
-        >GitHub
-        <svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <path
-            d="M5 15 15 5M5 5h10v10"
-            stroke="currentColor"
-            stroke-width="1.7"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          /></svg
-      ></a>
-    </header>
-    <main id="main-content" tabindex="-1">
-      <section class="page-intro">
-        <h1>Work logs.</h1>
-        <p>A record of the work, one change at a time.</p>
-      </section>
-      <section class="token-section" aria-labelledby="token-title">
-        <div class="section-heading">
-          <h2 id="token-title">Token activity</h2>
-          <p>Screenshot · <time datetime="2026-09-07">7 Sep 2026</time></p>
-        </div>
-        <figure class="token-figure">
-          <img
-            src="assets/token-activity-2026-09-07.png"
-            width="942"
-            height="316"
-            alt="Token activity screenshot: 7B lifetime tokens, 400.5M peak tokens, a 3-day current streak and a 30-day longest streak. A blue daily activity map runs from October to September."
-          />
-          <figcaption>
-            <span>A saved snapshot of token usage.</span
-            ><a
-              class="text-link"
-              href="assets/token-activity-2026-09-07.png"
-              data-view-image
-              >View full size</a
-            >
-          </figcaption>
-        </figure>
-      </section>
-      <section class="archive-section" aria-labelledby="archive-title">
-        <h2 id="archive-title">Development archive</h2>
-        <p class="archive-note" data-archive-note>
-          Selected changes from public projects. Exported 9 Mar 2026.
-        </p>
-        <div
-          class="project-filters"
-          data-project-filters
-          role="group"
-          aria-label="Filter by project"
-          hidden
-        ></div>
-        <div class="log-feed" data-work-log-list></div>
-        <div class="archive-controls" hidden data-archive-controls>
-          <p data-results-count aria-live="polite" aria-atomic="true"></p>
-          <button class="button secondary" type="button" data-load-more>
-            Load more changes
-          </button>
-        </div>
-        <noscript
-          ><p>
-            Enable JavaScript to filter the archive. The
-            <a class="text-link" href="portfolio.html"
-              >project summaries and repository links</a
-            >
-            remain available.
-          </p></noscript
-        >
-      </section>
+  <body>
+    <main>
+      <h1>Portfolio</h1>
+      <p>Token activity is now part of the <a href="portfolio.html#token-activity">portfolio</a>.</p>
     </main>
-    <footer class="site-footer">
-      <a href="index.html">Alex Bethune</a>
-      <p>Data &amp; software · Melbourne</p>
-    </footer>
-    <dialog
-      class="image-dialog"
-      id="snapshot-dialog"
-      aria-labelledby="snapshot-title"
-    >
-      <div class="dialog-heading">
-        <div>
-          <h2 id="snapshot-title">Token activity</h2>
-          <p>Original screenshot · 7 Sep 2026</p>
-        </div>
-        <button
-          type="button"
-          class="icon-button"
-          data-close-image
-          aria-label="Close image"
-          autofocus
-        >
-          <svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path
-              d="m5 5 10 10M15 5 5 15"
-              stroke="currentColor"
-              stroke-width="1.7"
-              stroke-linecap="round"
-            />
-          </svg>
-        </button>
-      </div>
-      <p class="pan-hint">Scroll sideways to inspect the full-size image.</p>
-      <div
-        class="image-scroll"
-        tabindex="0"
-        role="region"
-        aria-label="Full-size screenshot, horizontally scrollable"
-      >
-        <img
-          src="assets/token-activity-2026-09-07.png"
-          width="942"
-          height="316"
-          alt="Original token activity screenshot, with 7B lifetime tokens, 400.5M peak tokens, a 3-day current streak and a 30-day longest streak."
-        />
-      </div>
-    </dialog>
-    <script src="work-log-data.js" defer></script>
-    <script src="work-log.js" type="module"></script>
   </body>
 </html>

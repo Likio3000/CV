@@ -6,7 +6,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = ("index.html", "portfolio.html", "work-logs.html")
+# Work Logs is now a legacy redirect, rather than a navigation page.
+PAGES = ("index.html", "portfolio.html")
 
 
 class PageParser(HTMLParser):

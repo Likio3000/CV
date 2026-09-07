@@ -1,64 +1,45 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alex Bethune | Selected Data &amp; Software Projects</title>
-    <meta
-      name="description"
-      content="Four selected data, research and software projects: Alpha Evolve, VIC Energy Demand, Typing Quest and Senda."
-    />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link
-      rel="preload"
-      href="assets/fonts/inter-latin.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body class="portfolio-page">
+    <meta name="description" content="Four selected data, research and software projects: Alpha Evolve, VIC Energy Demand, Typing Quest and Senda.">
+    <meta name="theme-color" content="#f3efe5">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="direction-fonts.css"><link rel="stylesheet" href="direction.css"></head>
+  <body class="portfolio-page direction-b">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Alex Bethune, home"
-        >Alex Bethune</a
-      >
+      <a class="brand" href="index.html" aria-label="Alex Bethune, home"><span>Alex</span><span>Bethune</span></a>
       <nav aria-label="Primary">
-        <a href="index.html">CV</a
-        ><a href="portfolio.html" aria-current="page">Portfolio</a
-        ><a href="work-logs.html">Work Logs</a>
+        <a href="index.html"><span class="nav-number" aria-hidden="true">01</span>CV</a><a href="portfolio.html" aria-current="page"><span class="nav-number" aria-hidden="true">02</span>Portfolio</a>
       </nav>
-      <a
-        class="header-action"
-        href="https://github.com/Likio3000"
-        target="_blank"
-        rel="noopener"
-        >GitHub
-        <svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <path
-            d="M5 15 15 5M5 5h10v10"
-            stroke="currentColor"
-            stroke-width="1.7"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          /></svg
-      ></a>
-    </header>
+      <div class="header-utilities"><a href="English%20CV-2.pdf" download="" class="header-action">Download PDF<svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><a href="https://github.com/Likio3000" target="_blank" rel="noopener" class="header-action">GitHub<svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div></header>
     <main id="main-content" tabindex="-1">
       <section class="page-intro">
         <h1>Selected work.</h1>
         <p>Four projects across data, research and software.</p>
       </section>
+      <figure class="portfolio-activity" id="token-activity" aria-label="Token activity snapshot">
+        <img class="activity-image" src="assets/token-activity-light-2026-09-07.png" width="958" height="210" alt="Daily token activity from October to September, shown as a seven-row heatmap. Darker squares indicate higher usage. Captured 7 September 2026.">
+        <figcaption>
+          <span>Token usage · <time datetime="2026-09-07">7 Sep 2026</time> snapshot</span>
+          <a class="text-link" href="assets/token-activity-light-2026-09-07.png" data-view-image aria-haspopup="dialog">View full size<svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </figcaption>
+      </figure>
       <section class="project-list" aria-label="Project case studies">
         <article class="project-row" id="alpha-evolve">
           <div class="project-index">
             <span class="project-number">01</span>
-            <p>Research systems</p>
+            </div>
+          <div class="project-content"><div class="project-main">
+            <div class="project-name"><h2>Alpha Evolve</h2><p class="project-category">Research systems</p>
           </div>
-          <div class="project-main">
-            <div class="project-name"><h2>Alpha Evolve</h2></div>
             <p class="project-question">
               Generating and evaluating trading signals systematically.
             </p>
@@ -67,42 +48,17 @@
               backtesting, with a dashboard to inspect experiments.
             </p>
           </div>
-          <div class="project-focus">
+          <div class="project-proof"><div class="project-focus">
             <h3>Engineering focus</h3>
             <p>
               Separate search from evaluation. Keep settings and results
               inspectable.
             </p>
-            <p class="project-stack">Python · TypeScript</p>
-          </div>
-          <div class="project-actions">
-            <a
-              class="text-link"
-              href="https://github.com/Likio3000/Alpha_Evolve"
-              target="_blank"
-              rel="noopener"
-              aria-label="Explore repository: Alpha Evolve"
-              >Explore repository
-              <svg
-                class="icon"
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M5 15 15 5M5 5h10v10"
-                  stroke="currentColor"
-                  stroke-width="1.7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                /></svg
-            ></a>
-            <details>
+            </div>
+          <div class="project-tech"><h3>Technology</h3><p class="project-stack">Python · TypeScript</p>
+          </div><details open="">
               <summary>
-                Evidence &amp; limits<span
-                  class="disclosure-mark"
-                  aria-hidden="true"
-                ></span>
+                Evidence &amp; limits<span class="disclosure-mark" aria-hidden="true"></span>
               </summary>
               <div class="evidence-content">
                 <p>
@@ -110,37 +66,22 @@
                   source. Historical experiments are research results, not a
                   forecast of live performance.
                 </p>
-                <a
-                  class="text-link"
-                  href="https://github.com/Likio3000/Alpha_Evolve#readme"
-                  target="_blank"
-                  rel="noopener"
-                  >Read the approach
-                  <svg
-                    class="icon"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M5 15 15 5M5 5h10v10"
-                      stroke="currentColor"
-                      stroke-width="1.7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    /></svg
-                ></a>
+                <a class="text-link" href="https://github.com/Likio3000/Alpha_Evolve#readme" target="_blank" rel="noopener">Read the approach
+                  <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
               </div>
             </details>
-          </div>
-        </article>
+          </div><a class="text-link" href="https://github.com/Likio3000/Alpha_Evolve" target="_blank" rel="noopener" aria-label="Explore repository: Alpha Evolve">Explore repository
+              <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+            </div></article>
         <article class="project-row" id="vic-energy">
           <div class="project-index">
             <span class="project-number">02</span>
-            <p>Data &amp; forecasting</p>
+            </div>
+          <div class="project-content"><div class="project-main">
+            <div class="project-name"><h2>VIC Energy Demand</h2><p class="project-category">Data &amp; forecasting</p>
           </div>
-          <div class="project-main">
-            <div class="project-name"><h2>VIC Energy Demand</h2></div>
             <p class="project-question">
               Understanding the next day through historical energy data.
             </p>
@@ -149,42 +90,17 @@
               prices, with benchmarks and a Streamlit dashboard.
             </p>
           </div>
-          <div class="project-focus">
+          <div class="project-proof"><div class="project-focus">
             <h3>Engineering focus</h3>
             <p>
               Chronological evaluation, aligned targets and checks for
               incomplete days.
             </p>
-            <p class="project-stack">Python · pandas · Streamlit</p>
-          </div>
-          <div class="project-actions">
-            <a
-              class="text-link"
-              href="https://github.com/Likio3000/vic-energy-demand-case-study"
-              target="_blank"
-              rel="noopener"
-              aria-label="Explore repository: VIC Energy Demand"
-              >Explore repository
-              <svg
-                class="icon"
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M5 15 15 5M5 5h10v10"
-                  stroke="currentColor"
-                  stroke-width="1.7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                /></svg
-            ></a>
-            <details>
+            </div>
+          <div class="project-tech"><h3>Technology</h3><p class="project-stack">Python · pandas · Streamlit</p>
+          </div><details open="">
               <summary>
-                Evidence &amp; limits<span
-                  class="disclosure-mark"
-                  aria-hidden="true"
-                ></span>
+                Evidence &amp; limits<span class="disclosure-mark" aria-hidden="true"></span>
               </summary>
               <div class="evidence-content">
                 <p>
@@ -193,37 +109,22 @@
                   datasets. Later improvements validated in a local checkout are
                   not represented as a published release here.
                 </p>
-                <a
-                  class="text-link"
-                  href="https://github.com/Likio3000/vic-energy-demand-case-study#readme"
-                  target="_blank"
-                  rel="noopener"
-                  >Read the case study
-                  <svg
-                    class="icon"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M5 15 15 5M5 5h10v10"
-                      stroke="currentColor"
-                      stroke-width="1.7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    /></svg
-                ></a>
+                <a class="text-link" href="https://github.com/Likio3000/vic-energy-demand-case-study#readme" target="_blank" rel="noopener">Read the case study
+                  <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
               </div>
             </details>
-          </div>
-        </article>
+          </div><a class="text-link" href="https://github.com/Likio3000/vic-energy-demand-case-study" target="_blank" rel="noopener" aria-label="Explore repository: VIC Energy Demand">Explore repository
+              <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+            </div></article>
         <article class="project-row" id="typing-quest">
           <div class="project-index">
             <span class="project-number">03</span>
-            <p>Native software</p>
+            </div>
+          <div class="project-content"><div class="project-main">
+            <div class="project-name"><h2>Typing Quest</h2><p class="project-category">Native software</p>
           </div>
-          <div class="project-main">
-            <div class="project-name"><h2>Typing Quest</h2></div>
             <p class="project-question">
               Turning typing practice into a progressive learning experience.
             </p>
@@ -232,42 +133,17 @@
               session scoring and performance history.
             </p>
           </div>
-          <div class="project-focus">
+          <div class="project-proof"><div class="project-focus">
             <h3>Engineering focus</h3>
             <p>
               Session logic and metrics separated from views, with unit and UI
               tests.
             </p>
-            <p class="project-stack">Swift · SwiftUI · macOS</p>
-          </div>
-          <div class="project-actions">
-            <a
-              class="text-link"
-              href="https://github.com/Likio3000/typing-quest"
-              target="_blank"
-              rel="noopener"
-              aria-label="Explore repository: Typing Quest"
-              >Explore repository
-              <svg
-                class="icon"
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M5 15 15 5M5 5h10v10"
-                  stroke="currentColor"
-                  stroke-width="1.7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                /></svg
-            ></a>
-            <details>
+            </div>
+          <div class="project-tech"><h3>Technology</h3><p class="project-stack">Swift · SwiftUI · macOS</p>
+          </div><details open="">
               <summary>
-                Evidence &amp; limits<span
-                  class="disclosure-mark"
-                  aria-hidden="true"
-                ></span>
+                Evidence &amp; limits<span class="disclosure-mark" aria-hidden="true"></span>
               </summary>
               <div class="evidence-content">
                 <p>
@@ -275,40 +151,25 @@
                   release. Release availability does not imply that every UI
                   test or operating-system combination has passed.
                 </p>
-                <a
-                  class="text-link"
-                  href="https://github.com/Likio3000/typing-quest/releases/tag/v1.0.0"
-                  target="_blank"
-                  rel="noopener"
-                  >macOS release
-                  <svg
-                    class="icon"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M5 15 15 5M5 5h10v10"
-                      stroke="currentColor"
-                      stroke-width="1.7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    /></svg
-                ></a>
+                <a class="text-link" href="https://github.com/Likio3000/typing-quest/releases/tag/v1.0.0" target="_blank" rel="noopener">macOS release
+                  <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
               </div>
             </details>
-          </div>
-        </article>
+          </div><a class="text-link" href="https://github.com/Likio3000/typing-quest" target="_blank" rel="noopener" aria-label="Explore repository: Typing Quest">Explore repository
+              <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+            </div></article>
         <article class="project-row" id="senda">
           <div class="project-index">
             <span class="project-number">04</span>
-            <p>Web application</p>
-          </div>
-          <div class="project-main">
+            </div>
+          <div class="project-content"><div class="project-main">
             <div class="project-name">
               <h2>Senda</h2>
               <span class="review-note">Rebuild in review</span>
-            </div>
+            <p class="project-category">Web application</p>
+          </div>
             <p class="project-question">
               A focus timer that stays reliable across reloads and tabs.
             </p>
@@ -317,39 +178,14 @@
               reopening and local backups.
             </p>
           </div>
-          <div class="project-focus">
+          <div class="project-proof"><div class="project-focus">
             <h3>Engineering focus</h3>
             <p>A persisted timer deadline and atomic IndexedDB updates.</p>
-            <p class="project-stack">React · TypeScript · IndexedDB</p>
-          </div>
-          <div class="project-actions">
-            <a
-              class="text-link"
-              href="https://github.com/Likio3000/pomodoroAPP/pull/76"
-              target="_blank"
-              rel="noopener"
-              aria-label="Review rebuild: Senda"
-              >Review rebuild
-              <svg
-                class="icon"
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M5 15 15 5M5 5h10v10"
-                  stroke="currentColor"
-                  stroke-width="1.7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                /></svg
-            ></a>
-            <details>
+            </div>
+          <div class="project-tech"><h3>Technology</h3><p class="project-stack">React · TypeScript · IndexedDB</p>
+          </div><details open="">
               <summary>
-                Evidence &amp; limits<span
-                  class="disclosure-mark"
-                  aria-hidden="true"
-                ></span>
+                Evidence &amp; limits<span class="disclosure-mark" aria-hidden="true"></span>
               </summary>
               <div class="evidence-content">
                 <p>
@@ -357,30 +193,15 @@
                   validation. It replaces the older Flask app and removes AI
                   integration. This version remains in review.
                 </p>
-                <a
-                  class="text-link"
-                  href="https://github.com/Likio3000/pomodoroAPP/tree/likio/pomodoro-rebuild#readme"
-                  target="_blank"
-                  rel="noopener"
-                  >Run it locally
-                  <svg
-                    class="icon"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M5 15 15 5M5 5h10v10"
-                      stroke="currentColor"
-                      stroke-width="1.7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    /></svg
-                ></a>
+                <a class="text-link" href="https://github.com/Likio3000/pomodoroAPP/tree/likio/pomodoro-rebuild#readme" target="_blank" rel="noopener">Run it locally
+                  <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
               </div>
             </details>
-          </div>
-        </article>
+          </div><a class="text-link" href="https://github.com/Likio3000/pomodoroAPP/pull/76" target="_blank" rel="noopener" aria-label="Review rebuild: Senda">Review rebuild
+              <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+            </div></article>
       </section>
       <section class="project-method" aria-labelledby="method-title">
         <h2 id="method-title">How I work</h2>
@@ -393,5 +214,36 @@
       <a href="index.html">Alex Bethune</a>
       <p>Data &amp; software · Melbourne</p>
     </footer>
+    <!-- Reversible presentation filter: the original screenshot remains unchanged.
+         Map its red channel (blue-cell intensity) monotonically to pine and paper. -->
+    <svg class="image-filters" width="0" height="0" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="activity-tint" color-interpolation-filters="sRGB">
+          <feColorMatrix type="matrix" values="1 0 0 0 0  1 0 0 0 0  1 0 0 0 0  0 0 0 1 0"/>
+          <feComponentTransfer>
+            <feFuncR type="gamma" amplitude="1.016706" exponent="1.4" offset="0"/>
+            <feFuncG type="gamma" amplitude="1.016706" exponent="1.4" offset="0"/>
+            <feFuncB type="gamma" amplitude="1.016706" exponent="1.4" offset="0"/>
+          </feComponentTransfer>
+          <feColorMatrix type="matrix" values=".827451 0 0 0 .125490  0 .694118 0 0 .243137  0 0 .686275 0 .211765  0 0 0 1 0"/>
+        </filter>
+      </defs>
+    </svg>
+    <dialog class="image-dialog activity-dialog" id="snapshot-dialog" aria-labelledby="snapshot-title">
+      <div class="dialog-heading">
+        <div>
+          <h2 id="snapshot-title">Token activity</h2>
+          <p>Snapshot · 7 Sep 2026</p>
+        </div>
+        <button type="button" class="icon-button" data-close-image aria-label="Close image" autofocus>
+          <svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <p class="pan-hint">Scroll sideways to see the full year.</p>
+      <div class="image-scroll" tabindex="0" role="region" aria-label="Full-size token activity, horizontally scrollable">
+        <img class="activity-image" src="assets/token-activity-light-2026-09-07.png" width="958" height="210" alt="Daily token usage heatmap from October to September. Darker squares indicate higher usage.">
+      </div>
+    </dialog>
+    <script src="snapshot.js" defer></script>
   </body>
 </html>
