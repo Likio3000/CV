@@ -1,0 +1,103 @@
+.with-portrait {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: center;
+  gap: 72px;
+}
+.with-portrait h1 {
+  font-size: clamp(44px, 6.4vw, 82px);
+  margin-bottom: 18px;
+}
+.with-portrait .profile-columns {
+  display: block;
+}
+.with-portrait .profile-summary {
+  max-width: 56ch;
+}
+.with-portrait .profile-contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 28px;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+}
+.with-portrait .profile-contact > * {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.portrait-figure {
+  margin: 0;
+  width: 100%;
+}
+.portrait-surface {
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg));
+  transition: transform 180ms ease-out;
+  border-radius: 3px;
+  box-shadow: 0 12px 28px rgb(19 23 27 / 0.07);
+}
+.portrait-surface img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: inherit;
+}
+.portrait-figure figcaption {
+  margin-top: 15px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+}
+@media (max-width: 1100px) {
+  .with-portrait {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 36px;
+  }
+  .with-portrait .profile-role {
+    font-size: 26px;
+  }
+  .with-portrait .profile-contact {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+@media (max-width: 760px) {
+  .with-portrait {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .with-portrait h1 {
+    font-size: clamp(44px, 9.5vw, 66px);
+  }
+  .with-portrait .profile-role {
+    font-size: 24px;
+  }
+  .portrait-figure {
+    max-width: 280px;
+    margin-inline: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+  .portrait-surface {
+    transform: none;
+    transition: none;
+  }
+}
+@media print {
+  .with-portrait {
+    display: block;
+  }
+  .portrait-figure {
+    display: none;
+  }
+  .with-portrait h1 {
+    font-size: 30pt;
+  }
+  .with-portrait .profile-contact {
+    grid-template-columns: 1fr 1fr;
+    font-size: 9pt;
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+}
