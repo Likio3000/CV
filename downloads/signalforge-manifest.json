@@ -1,0 +1,15 @@
+{
+  "project": "signalforge",
+  "fixture": "synthetic",
+  "command": "python3 pipeline.py demo",
+  "source_sha256": {
+    "LICENSE": "73da2d6b3b1eba39d87a5298b6cd18bb8f00a6b9333e71583fd300caf413a9fe",
+    "README.md": "e4ec639b658f219cfd121db8949be2981ddbaba40ea90ec6533818a98fcfb008",
+    "data/fixture.json": "a469ae57ab1530ab4c7d914e3ff8a6f0a208eacbb725d4023babbb251c9e4915",
+    "demo-output.json": "e04d492d50e732ba459957b767c94a00b2391176319b0bda869fd269547a8630",
+    "pipeline.py": "668fe75eddf3bc77e72aad5f6f889c4e24da0da1098d3a4b97b89a2e3493f023",
+    "sql/point_in_time.sql": "e255ee73e44415f70893be59bcfc0dfad2acbc1bd5d668191f3112682634ff6d",
+    "sql/schema.sql": "ac83f760b4e93427fce4b7649c1beb789403cf8f3c3954794685d0e08546484a",
+    "tests/test_features.py": "338064d4be71d81499b140993ad90e40419a70a7a35a5a7b773ee8c5cbb7a5b1"
+  }
+}

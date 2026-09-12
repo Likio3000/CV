@@ -1,0 +1,28 @@
+{
+  "ingestion": {
+    "accepted": 9,
+    "duplicates": 1,
+    "quarantined": 2
+  },
+  "replay": {
+    "accepted": 0,
+    "duplicates": 10,
+    "quarantined": 2
+  },
+  "warehouse": {
+    "counts": {
+      "change_log": 9,
+      "customer_history": 5,
+      "customers": 2,
+      "orders": 1,
+      "quarantine": 2
+    },
+    "revenue": [
+      {
+        "paid_orders": 1,
+        "revenue_cents": 15000,
+        "segment": "premium"
+      }
+    ]
+  }
+}

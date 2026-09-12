@@ -170,3 +170,12 @@ main,.site-footer{width:calc(100% - 304px);max-width:1180px;margin-left:256px;ma
 .activity-context h2{font-size:30px;margin-bottom:12px}
 .activity-context>p{max-width:65ch;color:var(--muted)}
 .activity-context .portfolio-activity{margin-top:24px}
+
+/* Shared CV project details remain readable on the web and in the PDF source. */
+.work-overview .work-stack{font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6;color:var(--muted);margin-top:10px}
+.work-overview .work-summary{font-size:14px;line-height:1.65;margin-top:10px}
+.experience-list dd.experience-detail{font-family:Inter,sans-serif;font-size:14px;line-height:1.6;color:var(--ink);margin-top:10px}
+.project-downloads{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
+.project-downloads .text-link{font-size:14px;line-height:1.6;min-height:32px}
+.project-content>.availability-note{font-size:12px;line-height:1.6;color:var(--muted);margin-top:12px}
+@media(max-width:700px){.work-overview{gap:24px}.project-downloads{align-items:flex-start;flex-direction:column;gap:10px}.work-overview .work-stack{font-size:12px}}

@@ -1,4 +1,4 @@
-"""Build the downloadable CV from the existing HTML, preserving experience text.
+"""Build the downloadable CV from the existing HTML, using its visible headline, selected projects and experience text.
 
 Requires reportlab. Run from any directory; optional --root selects the checkout.
 """
@@ -8,6 +8,9 @@ import argparse
 import html
 import re
 from pathlib import Path
+from urllib.parse import urljoin
+
+from cv_content import load_cv_content
 
 from reportlab.lib import colors
 from reportlab.lib.styles import ParagraphStyle
@@ -28,6 +31,7 @@ def section(source, section_id):
 
 def build(root):
     source=(root/'index.html').read_text()
+    content=load_cv_content(root)
     pine=colors.HexColor('#203e36')
     muted=colors.HexColor('#525952')
     styles={
@@ -41,20 +45,18 @@ def build(root):
     def add(text,style='body'):
         story.append(Paragraph(text,styles[style]))
     add('Alex Bethune','name')
-    add('Python development &amp; data analysis.','role')
+    add(html.escape(content['role']),'role')
     add('Melbourne, Australia · <link href="mailto:abethuneplou@gmail.com">abethuneplou@gmail.com</link> · <link href="https://github.com/Likio3000">github.com/Likio3000</link>','small')
     add('<link href="https://likio3000.github.io/CV/portfolio.html">Portfolio: likio3000.github.io/CV/portfolio.html</link>','small')
-    summary=re.search(r'<p class="profile-summary">(.*?)</p>',source,re.S).group(1)
-    add(html.escape(plain(summary)))
+    add(html.escape(content['summary']))
     add('SELECTED DATA PROJECTS','heading')
-    projects=[
-        ('DevPulse Data Platform','Python, SQL, DuckDB, dbt, ClickHouse','Local batch and streaming platform for public GitHub events. Reference run: 2.5 million events; 99 Python tests passed in a clean environment. Code not publicly released.'),
-        ('VIC Energy Forecasting','Python, pandas, XGBoost, PyTorch','Three-stage study covering data preparation, model comparison and monitoring. XGBoost MAE 6,408 MWh versus GRU 6,414 MWh on the same 359 dates: a near-tie. Only the initial study is public.'),
-        ('NYC Taxi Data Engineering','Python, SQL, DuckDB, dbt','Built an audited warehouse from 5.97 million source trips. Loaded 5.90 million trips within the monthly scope; 14 dbt tests and eight quality checks passed. Code not publicly released.'),
-    ]
-    for title,stack,description in projects:
+    for project in content['projects']:
+        title=html.escape(project['title'])
+        stack=html.escape(project['stack'])
+        description=html.escape(project['description'])
+        link=html.escape(urljoin('https://likio3000.github.io/CV/',project['href']),quote=True)
         story.append(KeepTogether([
-            Paragraph('<b>'+title+'</b> <font color="#525952">| '+stack+'</font>',styles['body']),
+            Paragraph('<b><link href="'+link+'">'+title+'</link></b> <font color="#525952">| '+stack+'</font>',styles['body']),
             Paragraph(description,styles['body'])]))
     add('EXPERIENCE','heading')
     # Copy all employment entries verbatim in their existing order. No new claims.
@@ -63,6 +65,8 @@ def build(root):
         dates=re.search(r'<dd>(.*?)</dd>',block,re.S)
         if role and dates:
             add('<b>'+html.escape(plain(role.group(1)))+'</b> · '+html.escape(plain(dates.group(1))))
+            for detail in re.findall(r'<dd class="experience-detail">(.*?)</dd>',block,re.S):
+                add(html.escape(plain(detail)))
     add('TECHNICAL TOOLBOX','heading')
     toolbox=section(source,'toolbox-title')
     for block in re.findall(r'<div>(.*?)</div>',toolbox,re.S):

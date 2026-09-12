@@ -23,7 +23,7 @@
     <main id="main-content" tabindex="-1">
       <section class="page-intro">
         <h1>Selected work.</h1>
-        <p>Data pipelines and forecasting, followed by research and software.</p>
+        <p>Data pipelines, change capture and ML feature data, followed by forecasting, research and software.</p>
       </section>
 
       <section class="project-list" aria-label="Project case studies">
@@ -43,9 +43,65 @@
             <p class="availability-note">Local project · Code not publicly released</p>
           </div>
         </article>
+        <article class="project-row" id="commerce-cdc">
+          <div class="project-index"><span class="project-number">02</span></div>
+          <div class="project-content">
+            <div class="project-main">
+              <div class="project-name"><h2>Commerce CDC</h2><p class="project-category">Data engineering</p></div>
+              <p class="project-question">Keeping warehouse history correct when database changes arrive late.</p>
+              <p>A replayable commerce warehouse with customer history, current orders and a paid-revenue view. Late changes repair historical intervals; deleted orders stay deleted.</p>
+            </div>
+            <div class="project-proof">
+              <div class="project-focus"><h3>Engineering focus</h3><p>Source-order history, idempotent replay and a transaction that commits the change log and warehouse together. Conflicting identities and missing customer records block publication.</p></div>
+              <div class="project-tech"><h3>Technology</h3><p class="project-stack">Python · SQL window functions · SQLite · SCD Type 2</p></div>
+              <details open><summary>Evidence &amp; limits<span class="disclosure-mark" aria-hidden="true"></span></summary><div class="evidence-content"><p>Twelve synthetic deliveries produce nine accepted changes, five history versions and one current order. Paid revenue reconciles to 15,000 AUD cents. Nine tests cover replay, late changes, deletes, rollback and restart. This is a local sink for normalized events; no live CDC connector or production-scale benchmark is included.</p></div></details>
+            </div>
+            <div class="project-downloads">
+              <a class="text-link" href="downloads/commerce-cdc.zip" download>Download runnable source</a>
+              <a class="text-link" href="downloads/commerce-cdc-demo.json">View recorded demo output</a>
+            </div>
+            <p class="availability-note">Public source · Synthetic fixture · Python 3.12+ · No external packages</p>
+          </div>
+        </article>
+        <article class="project-row" id="nyc-taxi">
+          <div class="project-index"><span class="project-number">03</span></div>
+          <div class="project-content">
+            <div class="project-main">
+              <div class="project-name"><h2>NYC Taxi Data Engineering</h2><p class="project-category">Data engineering</p></div>
+              <p class="project-question">Turning monthly trip files into auditable analytical tables.</p>
+              <p>An ingestion and warehouse workflow for 5,972,150 source trips, with dimensional models, quality checks and a monthly report.</p>
+            </div>
+            <div class="project-proof">
+              <div class="project-focus"><h3>Engineering focus</h3><p>Keep source records intact, audit out-of-month pickups and aggregate reports at the declared grain.</p></div>
+              <div class="project-tech"><h3>Technology</h3><p class="project-stack">Python · SQL · DuckDB · dbt</p></div>
+              <details open><summary>Evidence &amp; limits<span class="disclosure-mark" aria-hidden="true"></span></summary><div class="evidence-content"><p>A fresh local warehouse published 5,900,472 trips and passed 14 dbt tests, eight quality checks and seven Python tests. Spark is optional and was not included; the repository is not publicly released.</p></div></details>
+            </div>
+            <p class="availability-note">Local project · Code not publicly released</p>
+          </div>
+        </article>
+        <article class="project-row" id="signalforge">
+          <div class="project-index"><span class="project-number">04</span></div>
+          <div class="project-content">
+            <div class="project-main">
+              <div class="project-name"><h2>SignalForge</h2><p class="project-category">ML data engineering</p></div>
+              <p class="project-question">Training on information that was actually available at prediction time.</p>
+              <p>A predictive-maintenance data pipeline that excludes future and delayed sensor readings. One SQL feature definition produces reproducible training snapshots and a local serving snapshot.</p>
+            </div>
+            <div class="project-proof">
+              <div class="project-focus"><h3>Engineering focus</h3><p>Check both event time and first availability, enforce a one-hour freshness limit, retain versioned training manifests and publish serving features atomically.</p></div>
+              <div class="project-tech"><h3>Technology</h3><p class="project-stack">Python · Temporal SQL · SQLite · Content hashes · Feature snapshots</p></div>
+              <details open><summary>Evidence &amp; limits<span class="disclosure-mark" aria-hidden="true"></span></summary><div class="evidence-content"><p>At the fixture's 10:00 prediction, the pipeline selects the known 68°C reading and excludes a delayed 82°C reading and a future event. Eleven tests cover leakage, training/serving parity, reproducibility, freshness, rollback and restart. Telemetry is synthetic; no model, hosted API or production performance is claimed.</p></div></details>
+            </div>
+            <div class="project-downloads">
+              <a class="text-link" href="downloads/signalforge.zip" download>Download runnable source</a>
+              <a class="text-link" href="downloads/signalforge-demo.json">View recorded demo output</a>
+            </div>
+            <p class="availability-note">Public source · Synthetic fixture · Python 3.12+ · No external packages</p>
+          </div>
+        </article>
         <article class="project-row" id="vic-energy">
           <div class="project-index">
-            <span class="project-number">02</span>
+            <span class="project-number">05</span>
             </div>
           <div class="project-content"><div class="project-main">
             <div class="project-name"><h2>VIC Energy Forecasting</h2><p class="project-category">Data &amp; forecasting</p>
@@ -86,25 +142,9 @@
               <svg class="icon" viewbox="0 0 20 20" fill="none" aria-hidden="true">
                 <path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
             </div></article>
-        <article class="project-row" id="nyc-taxi">
-          <div class="project-index"><span class="project-number">03</span></div>
-          <div class="project-content">
-            <div class="project-main">
-              <div class="project-name"><h2>NYC Taxi Data Engineering</h2><p class="project-category">Data engineering</p></div>
-              <p class="project-question">Turning monthly trip files into auditable analytical tables.</p>
-              <p>An ingestion and warehouse workflow for 5,972,150 source trips, with dimensional models, quality checks and a monthly report.</p>
-            </div>
-            <div class="project-proof">
-              <div class="project-focus"><h3>Engineering focus</h3><p>Keep source records intact, audit out-of-month pickups and aggregate reports at the declared grain.</p></div>
-              <div class="project-tech"><h3>Technology</h3><p class="project-stack">Python · SQL · DuckDB · dbt</p></div>
-              <details open><summary>Evidence &amp; limits<span class="disclosure-mark" aria-hidden="true"></span></summary><div class="evidence-content"><p>A fresh local warehouse published 5,900,472 trips and passed 14 dbt tests, eight quality checks and seven Python tests. Spark is optional and was not included; the repository is not publicly released.</p></div></details>
-            </div>
-            <p class="availability-note">Local project · Code not publicly released</p>
-          </div>
-        </article>
         <article class="project-row" id="alpha-evolve">
           <div class="project-index">
-            <span class="project-number">04</span>
+            <span class="project-number">06</span>
             </div>
           <div class="project-content"><div class="project-main">
             <div class="project-name"><h2>Alpha Evolve</h2><p class="project-category">Research systems</p>
@@ -146,7 +186,7 @@
             </div></article>
         <article class="project-row" id="typing-quest">
           <div class="project-index">
-            <span class="project-number">05</span>
+            <span class="project-number">07</span>
             </div>
           <div class="project-content"><div class="project-main">
             <div class="project-name"><h2>Typing Quest</h2><p class="project-category">Native software</p>
@@ -188,7 +228,7 @@
             </div></article>
         <article class="project-row" id="senda">
           <div class="project-index">
-            <span class="project-number">06</span>
+            <span class="project-number">08</span>
             </div>
           <div class="project-content"><div class="project-main">
             <div class="project-name">

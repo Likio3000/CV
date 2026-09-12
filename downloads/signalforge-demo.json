@@ -1,0 +1,62 @@
+{
+  "expired": {
+    "features": null,
+    "status": "stale"
+  },
+  "ingestion": {
+    "accepted": 4,
+    "duplicates": 1,
+    "quarantined": 1
+  },
+  "online": {
+    "features": {
+      "available_at": 1788255660,
+      "event_time": 1788255600,
+      "machine_id": "machine-a",
+      "prediction_time": 1788256800,
+      "reading_id": "a-known",
+      "request_id": "machine-a",
+      "temperature_milli_c": 68000,
+      "vibration_milli_mm_s": 2400
+    },
+    "status": "ready"
+  },
+  "training": {
+    "definition_hash": "e0dbc83906d4c4f3031bc3fa681adaf6a95d3c47fed39c24c1cfc3deed3761cd",
+    "rows": [
+      {
+        "available_at": 1788255660,
+        "event_time": 1788255600,
+        "machine_id": "machine-a",
+        "prediction_time": 1788256800,
+        "reading_id": "a-known",
+        "request_id": "prediction-a",
+        "temperature_milli_c": 68000,
+        "vibration_milli_mm_s": 2400
+      },
+      {
+        "available_at": null,
+        "event_time": null,
+        "machine_id": "machine-b",
+        "prediction_time": 1788256800,
+        "reading_id": null,
+        "request_id": "prediction-b",
+        "temperature_milli_c": null,
+        "vibration_milli_mm_s": null
+      },
+      {
+        "available_at": null,
+        "event_time": null,
+        "machine_id": "machine-c",
+        "prediction_time": 1788256800,
+        "reading_id": null,
+        "request_id": "prediction-unseen",
+        "temperature_milli_c": null,
+        "vibration_milli_mm_s": null
+      }
+    ],
+    "snapshot_id": "8da45f75154ef5da73aeb691f581c1fee38a9faffa85ab98d4bb721febb36177",
+    "source_hash": "6ffa80f4a3d1491cf347a4492cd91ca79b03218a3e342e4d1f3eddbcb8af3356",
+    "ttl_seconds": 3600
+  }
+}

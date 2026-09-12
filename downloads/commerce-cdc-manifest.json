@@ -1,0 +1,15 @@
+{
+  "project": "commerce-cdc",
+  "fixture": "synthetic",
+  "command": "python3 pipeline.py demo",
+  "source_sha256": {
+    "LICENSE": "73da2d6b3b1eba39d87a5298b6cd18bb8f00a6b9333e71583fd300caf413a9fe",
+    "README.md": "a4b929bdfcb8f5e769815768d71ffc6125d4105cd38aa15c80b856526540d7e3",
+    "data/changes.json": "7fcd315e7f4ddfed5be04d9b3508d7d773fd7d23b83d4e276cda904ece3eab71",
+    "demo-output.json": "0a624698e1cb163e5eaa72f899f0f5de9b8ec6515d5f6b8d5296381dc3e132c1",
+    "pipeline.py": "d83ab139da2645b5d42fa2605a4ffa5e5075590abe14dfbe1b42a509e698901d",
+    "sql/materialize.sql": "a221afa7d7471af562a817138f3e23e5bedc92eea57351dd5558f13e578f9a9c",
+    "sql/schema.sql": "a2bd3102157965886b25788a85d0193986c068969931aca1d05c3cee23f015ac",
+    "tests/test_warehouse.py": "11f010dac144733a5888012240621ef8f1064748d6f08b08f49e454948f21153"
+  }
+}
