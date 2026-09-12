@@ -4,12 +4,14 @@
   "command": "python3 pipeline.py demo",
   "source_sha256": {
     "LICENSE": "73da2d6b3b1eba39d87a5298b6cd18bb8f00a6b9333e71583fd300caf413a9fe",
-    "README.md": "e4ec639b658f219cfd121db8949be2981ddbaba40ea90ec6533818a98fcfb008",
+    "README.md": "a372008d1305d10887741eebda52610e2b0b7d9f5290a778a1bb72f56b1837f2",
     "data/fixture.json": "a469ae57ab1530ab4c7d914e3ff8a6f0a208eacbb725d4023babbb251c9e4915",
-    "demo-output.json": "e04d492d50e732ba459957b767c94a00b2391176319b0bda869fd269547a8630",
-    "pipeline.py": "668fe75eddf3bc77e72aad5f6f889c4e24da0da1098d3a4b97b89a2e3493f023",
-    "sql/point_in_time.sql": "e255ee73e44415f70893be59bcfc0dfad2acbc1bd5d668191f3112682634ff6d",
-    "sql/schema.sql": "ac83f760b4e93427fce4b7649c1beb789403cf8f3c3954794685d0e08546484a",
-    "tests/test_features.py": "338064d4be71d81499b140993ad90e40419a70a7a35a5a7b773ee8c5cbb7a5b1"
+    "data/machines.json": "85e2b994320dbfc701937671901e9db27fa6e035a6743ad9fedffb5aa24bf9b8",
+    "data/requests.json": "2c57dc9ed301e2451618dce7d35b18d50eb9c39b44da8070e956d2a555ed0cd5",
+    "demo-output.json": "ee93794c16e130036c2042b81b2a7a6f51d6e87d071d880644b2e17ba35c31c9",
+    "pipeline.py": "4fad2ac64f2fd30855fed99b0720d271368055e257981e931b7dd410e0a219e8",
+    "sql/point_in_time.sql": "054441b82c400cdb0f206cc244846d5611f713ada2a1b4d7317979e890462a42",
+    "sql/schema.sql": "4b974f127eb13f30141b4441262e63e6d42e33918728713355026644f3dd7ed1",
+    "tests/test_features.py": "ce5f55825f948e270005ba4549ef96ef3b1fed7bdd122f637c46a823a448f392"
   }
 }

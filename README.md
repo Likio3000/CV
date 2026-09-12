@@ -17,7 +17,7 @@ Open `http://127.0.0.1:8000/`. The CV and project summaries work without JavaScr
 ## Pages and content
 
 - `index.html`: profile, selected work, experience, skills, education and contact links. The experience and education were transcribed from the existing CV image; no additional qualifications or employment outcomes are claimed. The download links to the text-based, one-page `Alex-Bethune-CV.pdf`.
-- `portfolio.html`: DevPulse, Commerce CDC and NYC Taxi lead the data engineering selection, followed by SignalForge, VIC Energy Forecasting, Alpha Evolve, Typing Quest and Senda. Commerce CDC and SignalForge include public runnable source downloads and recorded demo output from synthetic fixtures. DevPulse and NYC Taxi are labelled as local projects with unreleased code; only the initial VIC study has a public repository. Senda links to its rebuild PR and branch while that version is in review. The token-activity screenshot supplied on 7 September 2026 appears after the project evidence as supplementary context.
+- `portfolio.html`: DevPulse, Commerce CDC and NYC Taxi lead the data engineering selection, followed by SignalForge, VIC Energy Forecasting, Alpha Evolve, Typing Quest and Senda. Commerce CDC and SignalForge include public runnable source downloads, browsable source and tests, and recorded demo output from synthetic fixtures. DevPulse and NYC Taxi are labelled as local projects with unreleased code; only the initial VIC study has a public repository. Senda links to its rebuild PR and branch while that version is in review. The token-activity screenshot supplied on 7 September 2026 appears after the project evidence as supplementary context.
 - `work-logs.html`: a legacy redirect to the portfolio snapshot. Work Logs is no longer a navigation section. The archived dataset and generator remain available in the repository.
 - `public-projects.json`: the explicit selection of repositories eligible for the public archive. The log generator skips repositories outside this list before reading their activity.
 
@@ -65,3 +65,16 @@ To update a bundle, regenerate it in the Data Engineering Portfolio project with
 `make portfolio-assets`, then replace the matching ZIP, demo JSON and manifest
 together. The download test checks that archive contents match their hashes and
 that running the downloaded program reproduces the displayed output.
+
+## Project reliability update — 12 September 2026
+
+The `projects/commerce-cdc` and `projects/signalforge` directories are public mirrors
+of the exact downloadable bundles. Download tests compare their bytes to each
+manifest, run all 30 pipeline tests, reproduce both demos and verify the
+2,000-customer write-work comparison. Refresh the directories and downloads together
+from the portfolio source export; do not edit the mirrors independently.
+
+Commerce CDC now rebuilds only affected entities, audits derived rows using an
+independent Python fold and provides a transactional repair command. SignalForge
+now explains missing features and can block training or serving publication below
+an explicit coverage threshold while preserving the prior generation.

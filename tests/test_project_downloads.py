@@ -22,9 +22,19 @@ class PublicProjectDownloadsTests(unittest.TestCase):
                     for relative, digest in manifest['source_sha256'].items():
                         self.assertFalse(Path(relative).is_absolute())
                         self.assertNotIn('..', Path(relative).parts)
-                        self.assertEqual(hashlib.sha256(archive.read(f'{name}/{relative}')).hexdigest(), digest)
+                        content = archive.read(f'{name}/{relative}')
+                        self.assertEqual(hashlib.sha256(content).hexdigest(), digest)
+                        self.assertEqual((ROOT / 'projects' / name / relative).read_bytes(), content)
                     archive.extractall(directory)
                 project = Path(directory) / name
+                subprocess.run([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-v'],
+                               cwd=project, capture_output=True, text=True, check=True, timeout=30)
+                if name == 'commerce-cdc':
+                    measured = subprocess.run([sys.executable, 'workload.py'], cwd=project,
+                                              capture_output=True, text=True, check=True, timeout=30)
+                    expected = json.loads((ROOT / 'downloads' / 'commerce-cdc-workload.json').read_text())
+                    self.assertEqual(json.loads(measured.stdout), expected)
+                    self.assertEqual(json.loads((project / 'workload-output.json').read_text()), expected)
                 result = subprocess.run([sys.executable, 'pipeline.py', 'demo'], cwd=project,
                                         capture_output=True, text=True, check=True, timeout=30)
                 self.assertEqual(json.loads(result.stdout),

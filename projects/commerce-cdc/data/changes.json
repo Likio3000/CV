@@ -1,0 +1,138 @@
+[
+  {
+    "schema_version": 1,
+    "event_id": "c1-initial",
+    "position": 10,
+    "entity": "customer",
+    "entity_id": "c1",
+    "op": "r",
+    "after": {
+      "segment": "standard"
+    }
+  },
+  {
+    "schema_version": 1,
+    "event_id": "c2-initial",
+    "position": 20,
+    "entity": "customer",
+    "entity_id": "c2",
+    "op": "r",
+    "after": {
+      "segment": "standard"
+    }
+  },
+  {
+    "schema_version": 1,
+    "event_id": "o1-create",
+    "position": 30,
+    "entity": "order",
+    "entity_id": "o1",
+    "op": "c",
+    "after": {
+      "customer_id": "c1",
+      "amount_cents": 12500,
+      "status": "paid"
+    }
+  },
+  {
+    "schema_version": 1,
+    "event_id": "o2-create",
+    "position": 40,
+    "entity": "order",
+    "entity_id": "o2",
+    "op": "c",
+    "after": {
+      "customer_id": "c2",
+      "amount_cents": 5000,
+      "status": "paid"
+    }
+  },
+  {
+    "schema_version": 1,
+    "event_id": "c1-upgrade",
+    "position": 60,
+    "entity": "customer",
+    "entity_id": "c1",
+    "op": "u",
+    "after": {
+      "segment": "premium"
+    }
+  },
+  {
+    "schema_version": 1,
+    "event_id": "o1-adjust",
+    "position": 70,
+    "entity": "order",
+    "entity_id": "o1",
+    "op": "u",
+    "after": {
+      "customer_id": "c1",
+      "amount_cents": 15000,
+      "status": "paid"
+    }
+  },
+  {
+    "schema_version": 1,
+    "event_id": "o2-delete",
+    "position": 80,
+    "entity": "order",
+    "entity_id": "o2",
+    "op": "d",
+    "after": null
+  },
+  {
+    "schema_version": 1,
+    "event_id": "c2-delete",
+    "position": 90,
+    "entity": "customer",
+    "entity_id": "c2",
+    "op": "d",
+    "after": null
+  },
+  {
+    "schema_version": 1,
+    "event_id": "c1-late",
+    "position": 50,
+    "entity": "customer",
+    "entity_id": "c1",
+    "op": "u",
+    "after": {
+      "segment": "standard"
+    }
+  },
+  {
+    "schema_version": 1,
+    "event_id": "c1-initial",
+    "position": 10,
+    "entity": "customer",
+    "entity_id": "c1",
+    "op": "r",
+    "after": {
+      "segment": "standard"
+    }
+  },
+  {
+    "schema_version": 1,
+    "event_id": "invalid-amount",
+    "position": 100,
+    "entity": "order",
+    "entity_id": "o3",
+    "op": "c",
+    "after": {
+      "customer_id": "c1",
+      "amount_cents": -1,
+      "status": "paid"
+    }
+  },
+  {
+    "schema_version": 2,
+    "event_id": "schema-drift",
+    "position": 110,
+    "entity": "customer",
+    "entity_id": "c3",
+    "op": "c",
+    "after": {
+      "segment": "standard"
+    }
+  }
+]

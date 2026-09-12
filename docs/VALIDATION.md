@@ -31,3 +31,20 @@ Browser checks used the available Playwright connector; a separate Browser skill
 - No browser page errors were recorded during the route checks.
 - Employment titles and dates are preserved. Alex confirmed the added analyst
   detail: data from Dune was turned into charts using Python.
+
+## Project reliability extension — 12 September 2026
+
+- Commerce CDC: 13 tests pass, including randomized late arrivals, zero derived
+  writes on replay, no unrelated row rewrites, independent audit and rollback of
+  failed repair. The 2,000-customer / 2,000-order synthetic workload reproduces five
+  derived writes for one update and 12,002 for a full rebuild of the same state.
+- SignalForge: 17 tests pass, including explicit machine populations, coverage
+  boundaries, unavailable/expired explanations, rejected snapshot persistence,
+  previous-generation retention, recovery and process restart. CLI failures emit
+  JSON and exit 1; the previous release remains available.
+- Download verification checks SHA-256 manifests against both archives and the
+  browsable source mirrors, executes all 30 tests from extracted archives and
+  reproduces demo/workload evidence.
+- All 12 CV integrity tests and four JavaScript tests pass. The one-page PDF
+  matches the HTML and was rendered and visually inspected after the text update.
+- Hosted portfolio build, four server-render tests and ESLint pass.
