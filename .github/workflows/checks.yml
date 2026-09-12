@@ -19,3 +19,6 @@ jobs:
       - run: node --check work-log.js
       - run: node --check snapshot.js
       - run: node --test tests/*.test.mjs
+
+      - run: python3 -m pip install -r requirements-cv.txt
+      - run: python3 scripts/check_cv_pdf.py
