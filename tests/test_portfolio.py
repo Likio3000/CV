@@ -54,13 +54,15 @@ class PortfolioIntegrityTests(unittest.TestCase):
         self.assertTrue((ROOT / 'Alex-Bethune-CV.pdf').read_bytes().startswith(b'%PDF-'))
 
     def test_public_pages_do_not_link_unselected_repositories(self):
-        allowed = set(json.loads((ROOT / 'public-projects.json').read_text())['repositories'])
+        selection = json.loads((ROOT / 'public-projects.json').read_text())
+        allowed = set(selection['repositories'])
+        source_links = set(selection.get('source_links', []))
         for filename in PAGES:
             for resource in Document((ROOT / filename).read_text()).resources:
                 url = urlsplit(resource)
                 if url.netloc == 'github.com' and url.path.startswith('/Likio3000/'):
                     root = '/'.join(resource.split('/')[:5])
-                    self.assertIn(root.split('#')[0], allowed)
+                    self.assertTrue(resource in source_links or root.split('#')[0] in allowed, resource)
 
     def test_archive_contains_only_selected_public_repositories(self):
         source = (ROOT / 'work-log-data.js').read_text()

@@ -4,12 +4,15 @@
   "command": "python3 pipeline.py demo",
   "source_sha256": {
     "LICENSE": "73da2d6b3b1eba39d87a5298b6cd18bb8f00a6b9333e71583fd300caf413a9fe",
-    "README.md": "a4b929bdfcb8f5e769815768d71ffc6125d4105cd38aa15c80b856526540d7e3",
+    "README.md": "63ac525464d02f18dd550c57a9b652a6cbecd0f3a9cb17160fe3f01feacce690",
     "data/changes.json": "7fcd315e7f4ddfed5be04d9b3508d7d773fd7d23b83d4e276cda904ece3eab71",
-    "demo-output.json": "0a624698e1cb163e5eaa72f899f0f5de9b8ec6515d5f6b8d5296381dc3e132c1",
-    "pipeline.py": "d83ab139da2645b5d42fa2605a4ffa5e5075590abe14dfbe1b42a509e698901d",
+    "demo-output.json": "ca20fb3d06a38a40f429747d6384f2ec0d9ad25384749b5c9168ea0cd4f7765b",
+    "pipeline.py": "51739e2d8d2167a981a9f20be119854409bdc3489c11f803629c26901f10bb0b",
+    "sql/incremental.sql": "1173af987121824577b19822cd749619a9b69a250578b9cbb32f639675ccdcb6",
     "sql/materialize.sql": "a221afa7d7471af562a817138f3e23e5bedc92eea57351dd5558f13e578f9a9c",
     "sql/schema.sql": "a2bd3102157965886b25788a85d0193986c068969931aca1d05c3cee23f015ac",
-    "tests/test_warehouse.py": "11f010dac144733a5888012240621ef8f1064748d6f08b08f49e454948f21153"
+    "tests/test_warehouse.py": "f64271a85eac77350e2c3eb09e4f4176f18e9c853841286e16fa09145a4153ae",
+    "workload-output.json": "0a9ee698d2aecf8ae5349a5bc87a438b53d664871fc8f67c5f4b9a99d6bd2680",
+    "workload.py": "4bd5a76568d719dee7de0b618b5929ea5fdd9fb332ad5a25ab2b60fb68161058"
   }
 }

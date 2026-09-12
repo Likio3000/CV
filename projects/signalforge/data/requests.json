@@ -1,0 +1,17 @@
+[
+  {
+    "request_id": "prediction-a",
+    "machine_id": "machine-a",
+    "prediction_time": "2026-09-01T10:00:00Z"
+  },
+  {
+    "request_id": "prediction-b",
+    "machine_id": "machine-b",
+    "prediction_time": "2026-09-01T10:00:00Z"
+  },
+  {
+    "request_id": "prediction-unseen",
+    "machine_id": "machine-c",
+    "prediction_time": "2026-09-01T10:00:00Z"
+  }
+]

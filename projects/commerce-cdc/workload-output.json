@@ -1,0 +1,15 @@
+{
+  "accepted_changes": 4001,
+  "audit": "pass",
+  "customers": 2000,
+  "fixture": "synthetic",
+  "full_rebuild_derived_rows_written": 12002,
+  "incremental": {
+    "customers": 1,
+    "derived_rows_written": 5,
+    "orders": 0
+  },
+  "interpretation": "SQLite derived-row inserts and deletes for one customer update versus a subsequent full rebuild of the same state; excludes journal, temporary tables, reads and elapsed time.",
+  "orders": 2000,
+  "updated_customers": 1
+}

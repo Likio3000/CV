@@ -1,0 +1,69 @@
+{
+  "readings": [
+    {
+      "reading_id": "a-known",
+      "machine_id": "machine-a",
+      "event_time": "2026-09-01T09:40:00Z",
+      "available_at": "2026-09-01T09:41:00Z",
+      "temperature_milli_c": 68000,
+      "vibration_milli_mm_s": 2400
+    },
+    {
+      "reading_id": "a-delayed",
+      "machine_id": "machine-a",
+      "event_time": "2026-09-01T09:55:00Z",
+      "available_at": "2026-09-01T10:20:00Z",
+      "temperature_milli_c": 82000,
+      "vibration_milli_mm_s": 4500
+    },
+    {
+      "reading_id": "a-future",
+      "machine_id": "machine-a",
+      "event_time": "2026-09-01T10:05:00Z",
+      "available_at": "2026-09-01T10:06:00Z",
+      "temperature_milli_c": 90000,
+      "vibration_milli_mm_s": 6000
+    },
+    {
+      "reading_id": "b-expired",
+      "machine_id": "machine-b",
+      "event_time": "2026-09-01T08:00:00Z",
+      "available_at": "2026-09-01T08:01:00Z",
+      "temperature_milli_c": 45000,
+      "vibration_milli_mm_s": 1000
+    },
+    {
+      "reading_id": "invalid-temperature",
+      "machine_id": "machine-a",
+      "event_time": "2026-09-01T09:50:00Z",
+      "available_at": "2026-09-01T09:51:00Z",
+      "temperature_milli_c": 999000,
+      "vibration_milli_mm_s": 2000
+    },
+    {
+      "reading_id": "a-known",
+      "machine_id": "machine-a",
+      "event_time": "2026-09-01T09:40:00Z",
+      "available_at": "2026-09-01T09:41:00Z",
+      "temperature_milli_c": 68000,
+      "vibration_milli_mm_s": 2400
+    }
+  ],
+  "requests": [
+    {
+      "request_id": "prediction-a",
+      "machine_id": "machine-a",
+      "prediction_time": "2026-09-01T10:00:00Z"
+    },
+    {
+      "request_id": "prediction-b",
+      "machine_id": "machine-b",
+      "prediction_time": "2026-09-01T10:00:00Z"
+    },
+    {
+      "request_id": "prediction-unseen",
+      "machine_id": "machine-c",
+      "prediction_time": "2026-09-01T10:00:00Z"
+    }
+  ]
+}
